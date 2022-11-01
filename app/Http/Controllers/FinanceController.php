@@ -46,5 +46,25 @@ class FinanceController extends Controller
     {
         return view('finance.profilefinance');
     }
+    public function vendor()
+    {
+        return view('finance.DataPenarikan.vendor');
+    }
+
+    public function laporan()
+    {
+        return view('finance.laporan.laporan');
+    }
+
+    public function laporansistem()
+    {
+        return view('finance.laporan.laporansistem');
+    }
+
+    public function laporanfinance()
+    {
+        return view('finance.laporan.laporanfinance');
+    }
+
 
 }

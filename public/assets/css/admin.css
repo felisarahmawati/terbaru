@@ -520,6 +520,72 @@
     height: 100%;
     object-fit: cover;
 }
+cardBox {
+    position: relative;
+    width: 100%;
+    padding: 20px 30px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px;
+}
+
+.cardBox2 {
+    position: relative;
+    width: 100%;
+    padding: 20px 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+}
+
+.cardBox2 .card {
+    position: relative;
+    background: var(--white);
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+}
+
+.cardBox2 .card .numbers {
+    position: relative;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: var(--blue);
+    line-height: 24px;
+    font-style: normal;
+}
+
+.cardBox2 .card .cardName {
+    color: var(--blue);
+    font-size: 1.2em;
+    margin-top: 5px;
+    font-weight: bold;
+    line-height: 16px;
+}
+
+.cardBox2 .card .iconBx {
+    font-size: 2.5em;
+    color: var(--blue);
+    text-align: right;
+    margin-right: 20px;
+    padding-top: 25px;
+}
+
+.cardBox2 .card:hover {
+    background: var(--blue);
+
+}
+
+.cardBox2 .card:hover .numbers,
+.cardBox2 .card:hover .cardName,
+.cardBox2 .card:hover .iconBx {
+    color: var(--white);
+    transition: all 0.5s ease-out;
+}
 
 .cardBox {
     position: relative;

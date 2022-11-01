@@ -82,6 +82,22 @@
                     </div>
                 </div>
             </li>
+            <li class="list {{ Request::segment(2) == 'laporan' ? 'active' : '' }}">
+                <div class="iocn-link">
+                    <a>
+                        <i class="bi bi-journal-text"></i>
+                        <span class="link_name dropBtn">Laporan</span>
+                    </a>
+                    <i class='bx bxs-chevron-down arrow'></i>
+                </div>
+                <div class="sub-menu">
+                    <div class="drop-box">
+                        <a href="/finance/laporan/laporan">Laporan</a>
+                        <a href="/finance/laporan/laporansistem">Laporan sistem</a>
+                        <a href="/finance/laporan/laporanfinance">Laporan finance</a>
+                    </div>
+                </div>
+            </li>
 
 
             <li class="">

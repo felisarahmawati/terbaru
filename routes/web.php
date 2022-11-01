@@ -203,11 +203,20 @@ Route::controller(FinanceController::class)->group(function(){
     Route::get('/finance/page', 'index');
     Route::get('/finance/transaksi/transaksiuser', 'transaksiuser');
     Route::get('/finance/transaksi/transaksivendor', 'transaksivendor');
+    Route::get('/finance/transaksi/detailtransaksiuser', 'detailtransaksiuser');
+    Route::get('/finance/transaksi/detailtransaksivendor', 'detailtransaksivendor');
     Route::get('/finance/DataPenarikan/penarikan', 'penarikan');
     Route::get('/finance/DataPenarikan/konfirmasi', 'konfirmasi');
     Route::get('/finance/DataPenarikan/history', 'history');
+    Route::get('/finance/DataPenarikan/vendor', 'vendor');
     Route::get('/finance/profilefinance', 'profile');
+    Route::get('/finance/laporan/laporan', 'laporan');
+    Route::get('/finance/laporan/laporansistem', 'laporansistem');
+    Route::get('/finance/laporan/laporanfinance', 'laporanfinance');
+
 });
+
+
 
 // Tampilan Admin
 Route::controller(AdminController::class)->group(function(){

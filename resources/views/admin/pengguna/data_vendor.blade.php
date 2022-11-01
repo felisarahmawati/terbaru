@@ -111,9 +111,9 @@
                     </div>
                 </div>
             </div>
-            <div class="modal-footer d-md-block">
+            {{-- <div class="modal-footer d-md-block">
                 <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal" aria-label="Close">Kembali</button>
-            </div>
+            </div> --}}
         </div>
     </div>
 </div>
