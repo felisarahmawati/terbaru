@@ -1,8 +1,8 @@
 {{-- customer profile --}}
-<div class="col card" style="width: 400px">
+<div class="col card" style="width: 450px">
 
-    <div class="card-profile d-flex justify-content-center align-items-center py-3 rounded-lg flex-column">
-        <div class="col-md-15">
+    <div class="card-profile d-flex justify-content-center align-items-center py-3 rounded-lg flex-column ">
+        <div class="col-md-15 mt-5">
             @if (Auth::user()->photo)
                 <img src="{{ asset('storage/photoscustomer/'. Auth::user()->photo) }}" alt="" style="width: 50%;" class="img-thumbnail rounded mx-auto d-block">
             @else
@@ -16,8 +16,8 @@
         <div class="person-email">
             <h3 class="text-center fs-5 fw-normal mb-3">{{ Auth::user()->email }}</h3>
         </div>
-        <div class="bt">
-            <button onclick="" class="btnedit" data-bs-toggle="modal" data-bs-target="#exampleModalEdit" class="btn btn-primary fw-bold rounded-pill px-4 shadow float-end">
+        <div class="bt mb-2">
+            <button onclick=""  data-bs-toggle="modal" data-bs-target="#exampleModalEdit" class="btn btn-success fw-bold rounded-pill px-4 shadow float-end">
                 Update
             </button>
         </div>
@@ -27,7 +27,7 @@
             <h5 class="card-title">
                 <b>Umum</b>
             </h5>
-            <div class="row" style="width: 300px">
+            <div class="row" style="width: 350px">
                 <div class="col-md">
                     <p><i class="bi bi-geo-alt px-1"></i>Tambah Alamat</p>
                 </div>
@@ -36,7 +36,7 @@
                 </div>
             </div>
 
-            <div class="row" style="width: 300px">
+            <div class="row" style="width: 350px">
                 <div class="col-md">
                     <p href=""><i class="bi bi-bell px-1"></i>Notifikasi</p>
                 </div>

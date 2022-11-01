@@ -81,4 +81,43 @@ class AppController extends Controller
         return view("superadmin.transaksi.transaksi");
     }
 
+    public function order_barang()
+    {
+        return view("superadmin.data.data_order.barang");
+    }
+
+    public function order_pickup()
+    {
+        return view("superadmin.data.data_order.pickup");
+    }
+
+    public function order_kendaraan()
+    {
+        return view("superadmin.data.data_order.kendaraan");
+    }
+    public function order_bangunan()
+    {
+        return view("superadmin.data.data_order.bangunan");
+    }
+
+    public function data_payment()
+    {
+        return view("superadmin.data.data_payment");
+    }
+
+    public function penarikan()
+    {
+        return view("superadmin.penarikan.penarikan");
+    }
+
+    public function history()
+    {
+        return view("superadmin.penarikan.history");
+    }
+    public function penarikan_vendor()
+    {
+        return view("superadmin.penarikan.vendor");
+    }
+    
+
 }

@@ -50,15 +50,40 @@
                 </ul>
             </li>
 
-            <li class="list {{ Request::segment(2) == 'pengguna' ? 'active' : '' }}">
+            <li class="list {{ Request::segment(2) == 'Pengguna' ? 'active' : '' }}">
+                <div class="iocn-link">
+                    <a>
+                        <i class='bx bx-data'></i>
+                        <span class="link_name dropBtn">Pengguna</span>
+                    </a>
+                    <i class='bx bxs-chevron-down arrow'></i>
+                </div>
+                <div class="sub-menu">
+                    <div class="drop-box">
+                        <a href="/superadmin/akun/pengguna">Semua pengguna</a>
+                        <a href="">Customer</a>
+                        <a href="/superadmin/vendor/data_vendor">Vendor</a>
+                        <a href="">Admin</a>
+                        <a href="">Finance</a>
+
+                        {{-- <a href="/superadmin/data/pengaturan-user">Pengaturan User</a> --}}
+                    </div>
+                </div>
+            </li>
+            {{-- <li class="list {{ Request::segment(2) == 'pengguna' ? 'active' : '' }}">
                 <a href="{{ url('/superadmin/akun/pengguna') }}">
                     <i class="bi bi-people-fill"></i>
                     <span class="link_name">Pengguna</span>
                 </a>
-                <ul class="sub-menu blank">
-                    <li><a class="link_name" href="{{ url('/superadmin/akun/pengguna') }}">Pengguna</a></li>
-                </ul>
-            </li>
+                <div class="sub-menu">
+                    <div class="drop-box">
+                        <a href="">Customer</a>
+                        <a href="">Vendor</a>
+                        <a href="">Admin</a>
+                        <a href="">Finance</a>
+                    </div>
+                </div>
+            </li> --}}
             {{-- <li class="list {{ Request::segment(2) == 'home' ? 'active' : '' }}">
                 <a href="/homeawal">
                     <i class='bx bx-home'></i>
@@ -161,28 +186,13 @@
                 </div>
                 <div class="sub-menu">
                     <div class="drop-box">
-                        <a href="/superadmin/data/order">Order</a>
-                        <a href="/superadmin/data/payment">Payment</a>
+                        <a href="/superadmin/data/data_order/kendaraan">Order</a>
+                        <a href="/superadmin/data/data_payment">Payment</a>
                         {{-- <a href="/superadmin/data/pengaturan-user">Pengaturan User</a> --}}
                     </div>
                 </div>
             </li>
-            <li class="list {{ Request::segment(2) == 'vendor' ? 'active' : '' }}">
-                <div class="iocn-link">
-                    <a>
-                        <i class='bx bxs-shopping-bags'></i>
-                        <span class="link_name dropBtn">Vendor</span>
-                    </a>
-                    <i class='bx bxs-chevron-down arrow'></i>
-                </div>
-                <div class="sub-menu">
-                    <div class="drop-box">
-                        <a href="/superadmin/vendor/data_vendor">Data Vendor</a>
-                        <a href="/superadmin/vendor/trans">Pengambilan Uang</a>
-                        <a href="/superadmin/vendor/data_pick_up">Data pemesanan pick up</a>
-                    </div>
-                </div>
-            </li>
+            
 
             <li class="list {{ Request::segment(2) == 'transaksi' ? 'active' : '' }}">
                 <a href="{{ url ('/superadmin/transaksi/transaksi') }}">
@@ -200,17 +210,25 @@
                         <i class="bi bi-bag-fill"></i>
                         <span class="link_name dropBtn">Penarikan</span>
                     </a>
+                    <i class='bx bxs-chevron-down arrow'></i>
                 </div>
+                    <div class="sub-menu">
+                        <div class="drop-box">
+                            <a href="/superadmin/penarikan/penarikan">Penarikan Vendor</a>
+                            <a href="/superadmin/penarikan/penarikan">-</a>
+                        </div>
+                    </div>
+                </li>
             </li>
 
-            <li class="list {{ Request::segment(2) == 'pemasukan' ? 'active' : '' }}">
+            {{-- <li class="list {{ Request::segment(2) == 'pemasukan' ? 'active' : '' }}">
                 <div class="iocn-link">
                     <a>
                         <i class="bi bi-currency-dollar"></i>
                         <span class="link_name dropBtn">Pemasukan</span>
                     </a>
                 </div>
-            </li>
+            </li> --}}
 
             {{-- <li class="list {{ Request::segment(2) == 'role' ? 'active' : '' }}">
                 <a href="{{ url('/superadmin/akun/role') }}">

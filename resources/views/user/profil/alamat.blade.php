@@ -1,11 +1,11 @@
 @extends("layouts_user.main")
 @section('container')
 
-<section id="services" class="services section-bg" style="padding-top: 100px;">
+<section id="services" class="services section-bg" style="padding-top: 100px; padding-left:180px">
     <div class="container mt-4 mb-4">
         <div class="row row-cols-1 row-cols-md-2 g-4">
             @include("user.partials.p_customer")
-            <div class="col" style="width: 700px">
+            <div class="col" style="width: 730px">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Alamat Saya</h5>
@@ -22,7 +22,7 @@
 
                         @foreach ($alamat as $item)
                         <div class="row" style="width: 650px">
-                            <div class="col-md">
+                            <div class="col-md-10">
                                 <p>
                                     <b>{{ $item->nama_lengkap }}</b>
                                 </p>
@@ -32,7 +32,15 @@
                                 <p>{{ $item->kota_kabupaten}}</p>
                                 <p class="card-text"><small class="text-muted">Catatan :{{ $item->catatan}}</small></p>
                             </div>
-                            <div class="row" style="width: 650px">
+                            <div class="col-1 text-end" style="font-size: 25px">
+                                <p><a href="/user/profil/edit_alamat"><i class="bi bi-pencil-square"></i></a></p>
+                            </div>
+
+                            <div class="col-1 text-end" style="font-size: 25px">
+                                <p><a href="/user/profil/edit_alamat" data-bs-toggle="modal" data-bs-target="#hapusAlamat"><i class="bi bi-trash"></i></a></p>
+                            </div>
+                        </div>   
+                            {{-- <div class="row" style="width: 650px">
                                 <div class="col-1">
                                     <p class="text-end"><a href="/user/profil/edit_alamat"><i class="bi bi-pencil-square"></i></a></p>
                                 </div>
@@ -54,7 +62,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         @endforeach
                         <a href="/user/profil/tambah_alamat"><button type="button" class="btn btn-outline-success col-md-12 mt-3">Tambah Alamat Baru</button></a>
                         </div>

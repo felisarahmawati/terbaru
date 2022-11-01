@@ -244,18 +244,20 @@ Route::group(["middleware" => ["autentikasi"]], function() {
             Route::get("/profile", "profile");
             Route::get("/home", "home");
             Route::get("/setting", "setting");
-            Route::prefix("vendor")->group(function() {
-                Route::get("/data_vendor", "vendor");
-                Route::get("/trans", "trans");
-                Route::get("/data_pick_up", "data_pick_up");
-            });
+            
             Route::prefix("data")->group(function() {
-                Route::get("/order", "order");
-                Route::get("/order=bangunan", "bangunan");
-                Route::get("/order=barang", "barang");
-                Route::get("/order=pickup", "pickup");
-                Route::get("/payment", "payment");
-                Route::get("/pengaturan-user", "pengaturan_user");
+                Route::get("/data_payment", "data_payment");
+                Route::prefix("data_order")->group(function() {
+                    Route::get("/kendaraan", "order_kendaraan");
+                    Route::get("/barang", "order_barang");
+                    Route::get("/bangunan", "order_bangunan");
+                    Route::get("/pickup", "order_pickup");
+                });
+            });
+            Route::prefix("penarikan")->group(function() {
+                Route::get("/penarikan", "penarikan");
+                Route::get("/history", "history");
+                Route::get("/vendor", "penarikan_vendor");
             });
 
             Route::prefix("akun")->group(function() {

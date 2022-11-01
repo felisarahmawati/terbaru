@@ -29,7 +29,7 @@
                         {{ session('berhasil')}}
                     </div>
                     @endif
-                    <table>
+                    <table style="width: auto">
                         <thead>
                             <tr class="col-md-12">
                                 <td>No</td>
