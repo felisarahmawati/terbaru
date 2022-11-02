@@ -44,6 +44,26 @@
                                 <div class="rincian d-inline mt-3">
                                     <button type="button" data-bs-toggle="modal" data-bs-target="#Filtervendor" class="btn btn-success fw-bold rounded-pill px-4 shadow float-end">Filter All</button>
                                 </div>
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <form class="form"  type="date">
+                                            <div class="row">
+                                                <div class="col-4 mb-3">
+                                                    <p for="tanggalmasuk" class="form-label" style="font-size: 14px">Dari Tanggal</p>
+                                                    <input type="date" class="form-control" id="tanggal">
+                                                </div>
+                                                <div class="col-4 mb-3" style="margin-left: 35px">
+                                                    <p for="tanggalmasuk" class="form-label" style="font-size: 14px">Sampai Tanggal</p>
+                                                    <input type="date" class="form-control" id="tanggal">
+                                                </div>
+                                                
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="col-md-4 text-end">
+                                        <a href="#" class="btn btn-thema"><i class="bi bi-printer p-2"></i>cetak</a>
+                                    </div>
+                                </div>
                             </div>
                             <table>
                                 <thead>

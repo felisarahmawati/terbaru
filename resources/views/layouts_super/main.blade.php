@@ -61,10 +61,28 @@
                 <div class="sub-menu">
                     <div class="drop-box">
                         <a href="/superadmin/akun/pengguna">Semua pengguna</a>
-                        <a href="">Customer</a>
-                        <a href="/superadmin/vendor/data_vendor">Vendor</a>
-                        <a href="">Admin</a>
-                        <a href="">Finance</a>
+                        <a href="/superadmin/akun/pengguna/users/customer">Customer</a>
+                        <a href="/superadmin/akun/pengguna/users/vendor">Vendor</a>
+                        <a href="/superadmin/akun/pengguna/users/admin">Admin</a>
+                        <a href="/superadmin/akun/pengguna/users/finance">Finance</a>
+
+                        {{-- <a href="/superadmin/data/pengaturan-user">Pengaturan User</a> --}}
+                    </div>
+                </div>
+            </li>
+
+            <li class="list {{ Request::segment(2) == 'Verifikasi' ? 'active' : '' }}">
+                <div class="iocn-link">
+                    <a>
+                        <i class='bx bx-data'></i>
+                        <span class="link_name dropBtn">Verifikasi</span>
+                    </a>
+                    <i class='bx bxs-chevron-down arrow'></i>
+                </div>
+                <div class="sub-menu">
+                    <div class="drop-box">
+                        <a href="/superadmin/verifikasi/data_vendor">Verifikasi Pengguna</a>
+                        <a href="/superadmin/verifikasi/verifikasi_layanan">Verifikasi layanan</a>
 
                         {{-- <a href="/superadmin/data/pengaturan-user">Pengaturan User</a> --}}
                     </div>

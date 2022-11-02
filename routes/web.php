@@ -3,57 +3,58 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\FaqController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\KontakController;
+
+
 use App\Http\Controllers\VendorController;
 use App\Http\Controllers\FinanceController;
-
-
-use App\Http\Controllers\Akun\LoginController;
-use App\Http\Controllers\Akun\PenggunaController;
 use App\Http\Controllers\Akun\RoleController;
 
 // use App\Http\Controllers\Vendor\VendorController;
 
-use App\Http\Controllers\Admin\DataCustomerController;
-use App\Http\Controllers\Admin\DataLayananVendorController;
-use App\Http\Controllers\Admin\DataOrderController;
-use App\Http\Controllers\Admin\DataPaymentController;
-use App\Http\Controllers\Admin\PemesananPickupController;
-use App\Http\Controllers\Admin\VerifikasiLayananVendorController;
-use App\Http\Controllers\Admin\VerifikasiVendorController;
-use App\Http\Controllers\Admin\PengembalianUangVendorController;
-
+use App\Http\Controllers\Akun\LoginController;
 use App\Http\Controllers\Master\AppController;
-use App\Http\Controllers\Master\KategoriController;
+use App\Http\Controllers\SliderHomeController;
+use App\Http\Controllers\TentangHomeController;
+use App\Http\Controllers\SliderKontakController;
+use App\Http\Controllers\Akun\PenggunaController;
+use App\Http\Controllers\SliderTentangController;
+use App\Http\Controllers\Layanan\DetailController;
+
+use App\Http\Controllers\Admin\DataOrderController;
+use App\Http\Controllers\Layanan\LayananController;
 use App\Http\Controllers\Master\HomeAwalController;
+use App\Http\Controllers\Master\KategoriController;
 use App\Http\Controllers\Master\ProvinsiController;
-use App\Http\Controllers\Master\TambahAlamatCustomerController;
-use App\Http\Controllers\Master\UpdatephotoAdminnController;
-use App\Http\Controllers\Master\UpdatephotoFinanceController;
-use App\Http\Controllers\Master\UpdatephotoVendorController;
+use App\Http\Controllers\KebijakanPrivasiController;
+use App\Http\Controllers\Admin\DataPaymentController;
+use App\Http\Controllers\Akun\Datapenggunacontroller;
+
+use App\Http\Controllers\Admin\DataCustomerController;
+use App\Http\Controllers\Layanan\SubLayananController;
+
 
 use App\Http\Controllers\User\UserPemesananController;
-use App\Http\Controllers\User\ProfilCustomerController;
-
-
-use App\Http\Controllers\User\UserLandingpageController;
-use App\Http\Controllers\User\UpdatephotoCustomerController;
-
-use App\Http\Controllers\Layanan\SubLayananController;
-use App\Http\Controllers\Layanan\LayananSliderController;
-use App\Http\Controllers\Layanan\DetailController;
-use App\Http\Controllers\Layanan\LayananController;
-use App\Http\Controllers\UserKonfirmPembayaranController;
-use App\Http\Controllers\FaqController;
-use App\Http\Controllers\KebijakanPrivasiController;
-use App\Http\Controllers\KontakController;
-use App\Http\Controllers\SliderKontakController;
-use App\Http\Controllers\SliderTentangController;
-use App\Http\Controllers\Master\HomeAwalController as MasterHomeAwalController;
-use App\Http\Controllers\Master\UpdatephotoSuperadminController;
-use App\Http\Controllers\SliderHomeController;
 use App\Http\Controllers\SubTentangtitipsiniController;
-use App\Http\Controllers\TentangHomeController;
+
+use App\Http\Controllers\User\ProfilCustomerController;
+use App\Http\Controllers\User\UserLandingpageController;
+use App\Http\Controllers\Admin\PemesananPickupController;
+use App\Http\Controllers\Layanan\LayananSliderController;
+use App\Http\Controllers\UserKonfirmPembayaranController;
+use App\Http\Controllers\Admin\VerifikasiVendorController;
+use App\Http\Controllers\Admin\DataLayananVendorController;
+use App\Http\Controllers\Master\UpdatephotoAdminnController;
+use App\Http\Controllers\Master\UpdatephotoVendorController;
+use App\Http\Controllers\User\UpdatephotoCustomerController;
+use App\Http\Controllers\Master\UpdatephotoFinanceController;
+use App\Http\Controllers\Master\TambahAlamatCustomerController;
+use App\Http\Controllers\Admin\PengembalianUangVendorController;
+use App\Http\Controllers\Master\UpdatephotoSuperadminController;
+use App\Http\Controllers\Admin\VerifikasiLayananVendorController;
+use App\Http\Controllers\Master\HomeAwalController as MasterHomeAwalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -267,6 +268,7 @@ Route::group(["middleware" => ["autentikasi"]], function() {
                 Route::get('/pengguna/edit', [PenggunaController::class, "edit"]);
                 Route::get('/pengguna/simpan', [PenggunaController::class, "update"]);
                 Route::resource("pengguna", PenggunaController::class);
+                
             });
 
             Route::prefix("master")->group(function() {
@@ -366,6 +368,15 @@ Route::controller(UpdatephotoVendorController::class)->group(function(){
 Route::controller(UpdatephotoCustomerController::class)->group(function(){
     Route::get('/user/profil/profil','indexp')->name('user.profil.profil');
     Route::patch('/profil/profil/{id}','update')->name('profil.update');
+});
+//route pengguna
+route::controller(Datapenggunacontroller::class)->group(function(){
+    Route::get('/superadmin/akun/pengguna/users/admin', 'admin');
+    Route::get('/superadmin/akun/pengguna/users/vendor', 'vendor');
+    Route::get('/superadmin/akun/pengguna/users/finance', 'finance');
+    Route::get('/superadmin/akun/pengguna/users/customer', 'customer');
+    Route::get('/superadmin/verifikasi/data_vendor', 'verifikasi_vendor');
+    Route::get('/superadmin/verifikasi/verifikasi_layanan', 'verifikasi_layanan');
 });
 
 //Kebijakan Privasi

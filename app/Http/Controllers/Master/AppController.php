@@ -118,6 +118,7 @@ class AppController extends Controller
     {
         return view("superadmin.penarikan.vendor");
     }
+
     
 
 }
