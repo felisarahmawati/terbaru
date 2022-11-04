@@ -1,4 +1,4 @@
-@extends('layouts_admin.main')
+@extends("layouts_admin.main")
 @section('content')
 <section class="home-section">
     <div class="main">
@@ -14,11 +14,14 @@
                 </label>
             </div>
         </div>
+
+        <!-- top nav -->
+       
         <!-- data list -->
         <div class="details1">
             <div class="recentOrders">
                 <div class="cardHeader">
-                    <h2>Data Customer</h2>
+                    <h2>Data Admin</h2>
                 </div>
                 
                 <table class="table-borderless mt-3 w-auto">
@@ -27,7 +30,6 @@
                             <td>Nama</td>
                             <td>Username</td>
                             <td>Email</td>
-                            <td>No Telpon</td>
                             <td>Alamat</td>
                         </tr>
                     </thead>
@@ -36,7 +38,18 @@
                             <td>Rebbecca Abadi</td>
                             <td>rebbecca</td>
                             <td>beca@gmail.com</td>
-                            <td>0895648980</td>
+                            <td>Planet Mars</td>
+                        </tr>
+                        <tr>
+                            <td>Bently aja</td>
+                            <td>bntly</td>
+                            <td>ben@gmail.com</td>
+                            <td>jl.diponegoro</td>
+                        </tr>
+                        <tr>
+                            <td>Willian Fredy</td>
+                            <td>will</td>
+                            <td>will@gmail.com</td>
                             <td>Planet Mars</td>
                         </tr>
                     </tbody>

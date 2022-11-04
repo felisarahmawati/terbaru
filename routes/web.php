@@ -93,6 +93,15 @@ Route::controller(AdminController::class)->group(function(){
             });
         });
     });
+
+    Route::controller(AdminController::class)->group(function(){
+        Route::get("/admin/pengguna/user/customer", "data_customer");
+        Route::get("/admin/pengguna/user/vendor", "data_vendor");
+        Route::get("/admin/transaksi/transaksi", "transaksi");
+        
+
+    });
+
     Route::prefix("vendor")->group(function(){
         Route::resource("verifikasi_layanan", VerifikasiLayananVendorController::class);
         Route::resource("pemesanan_pickup", PemesananPickupController::class);

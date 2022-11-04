@@ -51,18 +51,32 @@
                 <div class="iocn-link">
                     <a>
                         <i class='bx bx-user'></i>
-                        <span class="link_name dropBtn">Pengguna</span>
+                        <span class="link_name dropBtn">Data Pengguna</span>
                     </a>
                     <i class='bx bxs-chevron-down arrow'></i>
                 </div>
                 <div class="sub-menu" style="font-size: 13px">
                     <div class="drop-box">
-                        <a href="/admin/verifikasi/customer" >Customer</a>
-                        <a href="/pengguna/verifikasi_vendor">Vendor</a>
+                        <a href="/admin/pengguna/user/customer" >Customer</a>
+                        <a href="/admin/pengguna/user/vendor">Vendor</a>
                     </div>
                 </div>
             </li>
-
+            <li class="list {{ Request::segment(2) == 'Verifikasi' ? 'active' : '' }}">
+                <div class="iocn-link">
+                    <a>
+                        <i class='bx bxs-shopping-bags'></i>
+                        <span class="link_name dropBtn">Verifikasi</span>
+                    </a>
+                    <i class='bx bxs-chevron-down arrow'></i>
+                </div>
+                <div class="sub-menu" style="font-size: 13px">
+                    <div class="drop-box">
+                        <a href="/vendor/verifikasi_layanan">Verifikasi layanan</a>
+                        <a href="/pengguna/verifikasi_vendor">Verifikasi User</a>
+                    </div>
+                </div>
+            </li>
             <li class="list {{ Request::segment(2) == 'data' ? 'active' : '' }}">
                 <div class="iocn-link">
                     <a>
@@ -73,27 +87,41 @@
                 </div>
                 <div class="sub-menu" style="font-size: 13px">
                     <div class="drop-box">
-                        <a href="/data/data_customer">Data Customer</a>
+                        {{-- <a href="/data/data_customer">Data Customer</a> --}}
                         <a href="/data/data_order/kendaraan">Data Order</a>
                         <a href="/data/data_payment">Data Payment</a>
+                        <a href="/vendor/data_vendor/kendaraan">Data Vendor</a>
                     </div>
                 </div>
             </li>
-
+            <li class="list {{ Request::segment(2) == 'transaksi' ? 'active' : '' }}">
+                <div class="iocn-link">
+                    <a>
+                        <i class="fa-thin fa-hands-holding-dollar"></i>
+                        <span class="link_name dropBtn">Transaksi</span>
+                    </a>
+        
+                </div>
+                {{-- <a href="{{ url ('/admin/transaksi/transaksi') }}">
+                    <i class="fa-thin fa-hands-holding-dollar"></i>
+                    <span class="link_name">Transaksi</span>
+                </a> --}}
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="{{ url('/admin/transaksi/transaksi') }}">Transaksi</a></li>
+                </ul>
+            </li>
             <li class="list {{ Request::segment(2) == 'vendor' ? 'active' : '' }}">
                 <div class="iocn-link">
                     <a>
                         <i class='bx bxs-shopping-bags'></i>
-                        <span class="link_name dropBtn">Vendor</span>
+                        <span class="link_name dropBtn">Penarikan Vendor</span>
                     </a>
                     <i class='bx bxs-chevron-down arrow'></i>
                 </div>
                 <div class="sub-menu" style="font-size: 13px">
                     <div class="drop-box">
-                        <a href="/vendor/data_vendor/kendaraan">Data Vendor</a>
-                        <a href="/vendor/verifikasi_layanan/">Verifikasi Layanan</a>
                         <a href="/vendor/transaksi_pengambilan_uang/berlangsung">Penarikan Dana</a>
-                        <a href="/vendor/pemesanan_pickup/">Pemesanan Pickup</a>
+                        <a href="">-</a>
                     </div>
                 </div>
             </li>

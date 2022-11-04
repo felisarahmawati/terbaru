@@ -1,4 +1,4 @@
-@extends('layouts_admin.main')
+@extends("layouts_admin.main")
 @section('content')
 <section class="home-section">
     <div class="main">
@@ -14,6 +14,9 @@
                 </label>
             </div>
         </div>
+
+        <!-- top nav -->
+       
         <!-- data list -->
         <div class="details1">
             <div class="recentOrders">
