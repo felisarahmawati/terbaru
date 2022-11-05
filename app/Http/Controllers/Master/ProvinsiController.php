@@ -20,10 +20,10 @@ class ProvinsiController extends Controller
     public function store(Request $request)
     {
         $prov = Provinsi::where("nama_provinsi", $request->nama_provinsi)->count();
-        
+
         if ($prov > 0) {
             return back();
-        } else {
+        }else {
             Provinsi::create($request->all());
 
             return back()->with('berhasil', 'Data berhasil ditambahkan!');

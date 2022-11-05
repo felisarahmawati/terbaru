@@ -45,7 +45,7 @@ class UpdatephotoAdminnController extends Controller
                 $user->update([
                     'password' => Hash::make($request->password)
                 ]);
-            } else {
+            }else {
                 return back()
                     ->withErrors(['old_password' => __('Please enter the correct password')])
                     ->withInput();

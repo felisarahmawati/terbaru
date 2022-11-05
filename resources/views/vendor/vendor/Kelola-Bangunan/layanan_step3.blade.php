@@ -34,7 +34,7 @@
 
                     <div class="card1">
                         <div>
-                            <a href="/vendor/vendor/Kelola-Barang/kelola_barang" style="text-decoration:none">
+                            <a href="/vendor/vendor/Kelola_Barang/kelola_barang" style="text-decoration:none">
                                 <div class="cardName1">Barang
                                 </div>
                             </a>
@@ -42,7 +42,7 @@
                     </div>
                     <div class="card1">
                         <div>
-                            <a href="/vendor/vendor/Kelola-PickUp/kelola_pickup" style="text-decoration:none">
+                            <a href="/vendor/vendor/Kelola-Pickup/kelola_pickup" style="text-decoration:none">
                                 <div class="cardName1">Pick Up
                                 </div>
                             </a>

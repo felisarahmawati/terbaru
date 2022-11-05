@@ -52,11 +52,7 @@ class LoginController extends Controller
 
     public function register()
     {
-        $data = [
-            "data_provinsi" => Provinsi::get()
-        ];
-
-        return view("auth.register", $data);
+        return view("auth.register");
     }
 
     public function buat_akun()
@@ -75,10 +71,10 @@ class LoginController extends Controller
 
         $kota_kab = $response->json();
 
-        foreach ($kota_kab as $d) {
-            if ($d["id"] == $request->id_kota_kab) {
-                $nama_kab = $d["name"];
-                $id = $d["id"];
+        foreach ($kota_kab as $desa) {
+            if ($desa["id"] == $request->id_kota_kab) {
+                $nama_kab = $desa["name"];
+                $id = $desa["id"];
             }
         }
 
@@ -86,9 +82,9 @@ class LoginController extends Controller
 
         $kelurahan = $res_kelurahan->json();
 
-        foreach ($kelurahan as $k) {
-            if ($k["id"] == $request->id_kecamatan) {
-                $kecamatan = $k["name"];
+        foreach ($kelurahan as $kel) {
+            if ($kel["id"] == $request->id_kecamatan) {
+                $kecamatan = $kel["name"];
             }
         }
 
@@ -101,9 +97,9 @@ class LoginController extends Controller
                 "email" => $request->email,
                 "password" => bcrypt($request->password),
                 "alamat" => $request->alamat,
-                "kelurahan" => $request->kelurahan,
-                "kecamatan" => $request->kecamatan,
-                "kota_kab" => $request->kota_kab,
+                "kelurahan" => $request->id_kelurahan,
+                "kecamatan" => $kecamatan,
+                "kota_kab" => $nama_kab,
                 "id_kodepos" => $request->id_kodepos,
                 "no_telp" => $request->no_telp,
                 "id_role" => 2,
@@ -116,11 +112,8 @@ class LoginController extends Controller
     public function kecamatan(Request $request)
     {
         $id_kota_kab = $request->data;
-
-        $res_kecamatan = Http::get("https://emsifa.github.io/api-wilayah-indonesia/api/districts/".$id_kota_kab.".json");
-
-        $kecamatan = $res_kecamatan->json();
-
+        $kec_kecamatan = Http::get("https://emsifa.github.io/api-wilayah-indonesia/api/districts/".$id_kota_kab.".json");
+        $kecamatan = $kec_kecamatan->json();
         foreach ($kecamatan as $kec) {
             echo "<option value='".$kec["id"]."'>".$kec["name"]."</option>";
         }
@@ -129,11 +122,8 @@ class LoginController extends Controller
     public function kelurahan(Request $request)
     {
         $id_kecamatan = $request->id_kecamatan;
-
-        $res_kelurahan = Http::get("https://emsifa.github.io/api-wilayah-indonesia/api/villages/".$id_kecamatan.".json");
-
-        $kelurahan = $res_kelurahan->json();
-
+        $kel_kelurahan = Http::get("https://emsifa.github.io/api-wilayah-indonesia/api/villages/".$id_kecamatan.".json");
+        $kelurahan = $kel_kelurahan->json();
         foreach ($kelurahan as $kel) {
             echo "<option value='".$kel["name"]."'>".$kel["name"]."</option>";
         }

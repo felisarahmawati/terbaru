@@ -20,12 +20,6 @@ class TentangHomeController extends Controller
 
     public function store(Request $request)
     {
-        // $this->validate($request, [
-        //     'judul' => '',
-        //     'deskripsi' => '',
-        //     'image' => 'mimes:jpg,jpeg,png'
-        // ]);
-
         if($request->file("image")) {
             $data = $request->file("image")->store("tentanghome");
         }
@@ -49,19 +43,13 @@ class TentangHomeController extends Controller
 
     public function update(Request $request)
     {
-        // $this->validate($request, [
-        //     'judul' => '',
-        //     'deskripsi' => '',
-        //     'image' => 'mimes:jpg,jpeg,png'
-        // ]);
-
         if($request->file("image_new")) {
             if ($request->gambarLama) {
                 Storage::delete($request->gambarLama);
             }
 
             $data = $request->file("image_new")->store("tentanghome");
-        } else {
+        }else {
             $data = $request->gambarLama;
         }
 

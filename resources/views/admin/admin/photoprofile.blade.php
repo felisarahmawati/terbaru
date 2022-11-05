@@ -3,7 +3,6 @@
     <section class="home-section">
 
         <div class="main">
-            {{-- @include('admin.profile.partials') --}}
             <div class="topbar">
                 <div class="home-content">
                     <i class='bx bx-menu'></i>
@@ -17,6 +16,7 @@
                         <h3>Admin Profile</h3>
                     </div>
                 </div>
+
                 {{-- Card User Profile --}}
                 <div class="row g-3" data-aos="fade-up" data-aos-offset="200" data-aos-delay="50"
                     data-aos-duration="1000">
@@ -38,7 +38,6 @@
                                 <h3 class="text-center fs-5 fw-normal mb-3">{{ Auth::user()->email }}</h3>
                             </div>
                             <div class="bt">
-                                {{-- <button class="btn btn-outline-thema"> Edit </button> --}}
                                 <button onclick="" class="btnedit" data-bs-toggle="modal" data-bs-target="#exampleModalEdit" class="btn btn-primary fw-bold rounded-pill px-4 shadow float-end">
                                     Edit
                                 </button>
@@ -52,16 +51,9 @@
                                         aria-valuenow="74" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div>
-                            {{-- <hr width="100%" color="#c0c0c0">
-                            <div class="person-description">
-                                <p class="mb-1" style="text-align: left;">Description</p>
-                                <p class="text-black-50 text-wrap">
-                                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet quod sed quas adipisci
-                                    sequi atque. Provident quo ut recusandae debitis.
-                                </p>
-                            </div> --}}
                         </div>
                     </div>
+
                     {{-- Form Edit User Profile --}}
                     <div class="col-lg-8 col-md-6 mt-4 pe-2 ps-2 mb-1">
                         <div class="card-profile d-flex flex-column px-0 py-4">
@@ -111,17 +103,9 @@
                                     </div>
                                     <div class="col-md-6">
                                         <label for="inputkota_kab" class="form-label">kota</label>
-                                        <input type="text" class="form-control input-text" id="inputkota_kab"
-                                        value="{{ old('kota_kab', Auth::user()->kota_kab) }}">
+                                        <input type="text" class="form-control input-text" id="inputkota_kab" value="{{ old('kota_kab', Auth::user()->kota_kab) }}">
                                     </div>
                                     <br>
-                                    {{-- <div class="col mb-2">
-                                        <div class="col-md-8 offset-md-4">
-                                            <button type="submit" class="btn btn-primary">
-                                                {{ __('Update') }}
-                                            </button>
-                                        </div>
-                                    </div> --}}
                                 </form>
                             </div>
                         </div>
@@ -139,7 +123,6 @@
                         <h3 class="modal-title" id="exampleModalLabel">Edit Profile Admin</h3>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-
                     <form method="POST" action="{{ route('photoprofile.update', $user->id) }}" enctype="multipart/form-data">
                         @method('PATCH')
                         {{-- PERBEDAAN
@@ -149,10 +132,6 @@
                             melakukan update secara partial atau hanya separuh data yang di inginkan untuk diupdate
                         --}}
                         @csrf
-                        {{-- <div class="card-header card-header-primary">
-                        <h4 class="card-title">Edit Profile</h4>
-                        <p class="card-category">User information</p>
-                        </div> --}}
                         <div class="col mb-9">
                             <label for="name" class="col-sm-2 col-form-label">{{ __('Name') }}</label>
                                 <div class="col mb-6">

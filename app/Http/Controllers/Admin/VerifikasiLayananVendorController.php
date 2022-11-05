@@ -2,14 +2,18 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class VerifikasiLayananVendorController extends Controller
 {
     public function index()
     {
-        return view('admin.vendor.verifikasi_layanan');
+        $data = [
+            "user" => User::where("id_role", 4)->get()
+        ];
+        return view('admin.vendor.verifikasi_layanan' , $data);
     }
 
 }

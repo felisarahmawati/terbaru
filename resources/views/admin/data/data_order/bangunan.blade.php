@@ -42,6 +42,7 @@
                     </a>
                 </div>
             </div>
+
             <div class="card1">
                 <div>
                     <a href="/data/data_order/pickup" style="text-decoration:none">
@@ -51,6 +52,7 @@
                 </div>
             </div>
         </div>
+
         <!-- data list -->
         <div class="details1">
             <div class="recentOrders">
@@ -78,7 +80,6 @@
                             <td>Yes</td>
                             <td>IDR 600.000</td>
                             <td>2118 Thornridge cir. Syracuse connecticut 35624</td>
-                            <!-- <td><span class="status return">Return</span></td> -->
                         </tr>
                         <tr>
                             <td>Robecca Howard</td>
@@ -88,7 +89,6 @@
                             <td>Yes</td>
                             <td>IDR 600.000</td>
                             <td>2118 Thornridge cir. Syracuse connecticut 35624</td>
-                            <!-- <td><span class="status return">Return</span></td> -->
                         </tr>
                         <tr>
                             <td>Robecca Howard</td>
@@ -98,7 +98,6 @@
                             <td>Yes</td>
                             <td>IDR 600.000</td>
                             <td>2118 Thornridge cir. Syracuse connecticut 35624</td>
-                            <!-- <td><span class="status return">Return</span></td> -->
                         </tr>
                         <tr>
                             <td>Robecca Howard</td>
@@ -108,7 +107,6 @@
                             <td>Yes</td>
                             <td>IDR 600.000</td>
                             <td>2118 Thornridge cir. Syracuse connecticut 35624</td>
-                            <!-- <td><span class="status return">Return</span></td> -->
                         </tr>
                         <tr>
                             <td>Robecca Howard</td>
@@ -118,7 +116,6 @@
                             <td>Yes</td>
                             <td>IDR 600.000</td>
                             <td>2118 Thornridge cir. Syracuse connecticut 35624</td>
-                            <!-- <td><span class="status return">Return</span></td> -->
                         </tr>
                         <tr>
                             <td>Robecca Howard</td>
@@ -128,7 +125,6 @@
                             <td>Yes</td>
                             <td>IDR 600.000</td>
                             <td>2118 Thornridge cir. Syracuse connecticut 35624</td>
-                            <!-- <td><span class="status return">Return</span></td> -->
                         </tr>
                         <tr>
                             <td>Robecca Howard</td>
@@ -138,7 +134,6 @@
                             <td>Yes</td>
                             <td>IDR 600.000</td>
                             <td>2118 Thornridge cir. Syracuse connecticut 35624</td>
-                            <!-- <td><span class="status return">Return</span></td> -->
                         </tr>
                         <tr>
                             <td>Robecca Howard</td>
@@ -148,7 +143,6 @@
                             <td>Yes</td>
                             <td>IDR 600.000</td>
                             <td>2118 Thornridge cir. Syracuse connecticut 35624</td>
-                            <!-- <td><span class="status return">Return</span></td> -->
                         </tr>
                         <tr>
                             <td>Robecca Howard</td>
@@ -158,7 +152,6 @@
                             <td>Yes</td>
                             <td>IDR 600.000</td>
                             <td>2118 Thornridge cir. Syracuse connecticut 35624</td>
-                            <!-- <td><span class="status return">Return</span></td> -->
                         </tr>
                         <tr>
                             <td>Robecca Howard</td>
@@ -168,7 +161,6 @@
                             <td>Yes</td>
                             <td>IDR 600.000</td>
                             <td>2118 Thornridge cir. Syracuse connecticut 35624</td>
-                            <!-- <td><span class="status return">Return</span></td> -->
                         </tr>
                         <tr>
                             <td>Robecca Howard</td>
@@ -178,7 +170,6 @@
                             <td>Yes</td>
                             <td>IDR 600.000</td>
                             <td>2118 Thornridge cir. Syracuse connecticut 35624</td>
-                            <!-- <td><span class="status return">Return</span></td> -->
                         </tr>
                     </tbody>
                 </table>

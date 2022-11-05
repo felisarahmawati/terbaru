@@ -240,4 +240,10 @@ class VendorController extends Controller
     {
         return view('vendor.vendor.profilevendor.Jawaban6');
     }
+
+    //LENGKAPI DATA DIRI
+    public function lengkapidata()
+    {
+        return view('vendor.vendor.login.datadiri');
+    }
 }

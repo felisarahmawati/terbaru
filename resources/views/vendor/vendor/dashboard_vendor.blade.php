@@ -17,8 +17,6 @@
             </div>
         </div>
 
-
-
         <div class="row justify-content-center">
             <div class="col-md-12 container">
                 <div class="" style="background-color: #fff;">
@@ -161,7 +159,7 @@
     </div>
           <!--modal detailS Kendaraan-->
           <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
+            <div class="modal-dialog modal-lg" style="width: 45%">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel" style="color:#27cd88">Detail Pesanan</h5>
@@ -310,7 +308,7 @@
 
        <!--modal detail bangunan-->
        <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-lg" style="width: 45%">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel" style="color:#27cd88">Detail Pesanan</h5>
@@ -422,7 +420,7 @@
 
      <!--modal detailS barang-->
      <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-lg" style="width: 45%">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel" style="color:#27cd88">Detail Pesanan</h5>
@@ -562,7 +560,7 @@
     </div>
      <!--modal detailS pickup-->
      <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-lg" style="width: 45%">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel" style="color:#27cd88">Detail Pesanan</h5>
@@ -671,7 +669,7 @@
     </div>
      {{-- MODAL BUKTI PEMBAYARAN --}}
 <div class="modal fade" id="buktipembayaran" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-lg" style="width: 45%">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel" style="color:#27cd88">BUKTI PEMBAYARAN</h5>
@@ -680,13 +678,13 @@
             <div class="modal-body">
                 <div class="card p-3">
                     <div class="card-body">
-                        <img src="/../assets/img/placehold.jpg" alt="">
+                        <img src="/../assets/img/placehold.jpg" alt="" style="width: 45%">
 
                     </div>
                     <div class="footer">
-                        <button class="btn btn-success cl-md-12" data-bs-toggle="modal"
+                        {{-- <button class="btn btn-success cl-md-12" data-bs-toggle="modal"
                             data-bs-target="#exampleModalLabel"> Kembali
-                        </button>
+                        </button> --}}
                     </div>
                 </div>
             </div>

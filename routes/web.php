@@ -22,7 +22,7 @@ use App\Http\Controllers\Admin\PemesananPickupController;
 use App\Http\Controllers\Admin\VerifikasiLayananVendorController;
 use App\Http\Controllers\Admin\VerifikasiVendorController;
 use App\Http\Controllers\Admin\PengembalianUangVendorController;
-
+use App\Http\Controllers\Admin\VerifikasiPenggunaController;
 use App\Http\Controllers\Master\AppController;
 use App\Http\Controllers\Master\KategoriController;
 use App\Http\Controllers\Master\HomeAwalController;
@@ -46,7 +46,10 @@ use App\Http\Controllers\Layanan\LayananController;
 use App\Http\Controllers\UserKonfirmPembayaranController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\KebijakanPrivasiController;
+use App\Http\Controllers\Kelola\KelolaKendaraanController;
 use App\Http\Controllers\KontakController;
+use App\Http\Controllers\Master\DataDiriVendorController;
+use App\Http\Controllers\Master\DataVendorController;
 use App\Http\Controllers\SliderKontakController;
 use App\Http\Controllers\SliderTentangController;
 use App\Http\Controllers\Master\HomeAwalController as MasterHomeAwalController;
@@ -112,6 +115,9 @@ Route::controller(AdminController::class)->group(function(){
     });
 });
 
+Route::controller(VerifikasiPenggunaController::class)->group(function(){
+    Route::get('/admin/verifikasi/pengguna', 'index');
+});
 
 // Tampilan User
     Route::controller(UserLandingpageController::class)->group(function() {
@@ -226,7 +232,18 @@ Route::group(["middleware" => ["guest"]], function() {
 });
 
 Route::get("/ambil_kecamatan", [LoginController::class, "kecamatan"]);
-    Route::get("/ambil_kelurahan", [LoginController::class, "kelurahan"]);
+Route::get("/ambil_kelurahan", [LoginController::class, "kelurahan"]);
+
+    Route::get("/superadmin/vendor/data_vendor",[DataVendorController::class, 'index']);
+    Route::get("/superadmin/vendor/print_pdf",[DataVendorController::class, 'pdf'])->name('vendor.print_pdf');
+    Route::get("/superadmin/vendor/pdf_vendor/{id}",[DataVendorController::class, 'download'])->name('vendor.download');
+    Route::post("/superadmin/vendor/view-pdf",[DataVendorController::class, 'viewPDF'])->name('vendor.viewPDF');
+
+    // Route::get("/superadmin/vendor/pdf_vendor", function() {
+    //     return view("superadmin.vendor.pdf_vendor");
+    // });
+
+
 
 Route::group(["middleware" => ["autentikasi"]], function() {
     Route::controller(AppController::class)->group(function() {
@@ -236,7 +253,7 @@ Route::group(["middleware" => ["autentikasi"]], function() {
             Route::get("/home", "home");
             Route::get("/setting", "setting");
             Route::prefix("vendor")->group(function() {
-                Route::get("/data_vendor", "vendor");
+                // Route::get("/data_vendor", "vendor");
                 Route::get("/trans", "trans");
                 Route::get("/data_pick_up", "data_pick_up");
             });
@@ -300,7 +317,6 @@ Route::group(["middleware" => ["autentikasi"]], function() {
                 Route::get("/layanan_slider/edit", [LayananSliderController::class, "edit"]);
                 Route::put("/layanan_slider/simpan", [LayananSliderController::class, "update"]);
                 Route::resource("layanan_slider", LayananSliderController::class);
-
             });
 
             Route::prefix("layanan")->group(function() {
@@ -430,7 +446,6 @@ Route::controller(VendorController::class)->group(function(){
     Route::get('/vendor/vendor/Kelola-Kendaraan/layanan_step3', 'lyn3') ;
     Route::get('/vendor/vendor/Kelola-Kendaraan/layanan_step4', 'lyn4') ;
     Route::get('/vendor/vendor/Kelola-Kendaraan/kelola_kendaraan', 'kelolakendaraan') ;
-    Route::get('/vendor/vendor/Kelola-Kendaraan/atur_alamat', 'aturalamatken') ;
 
     //Bangunan
     Route::get('/vendor/vendor/Kelola-Bangunan/layanan_step1', 'lynbangunan1');
@@ -472,4 +487,15 @@ Route::controller(VendorController::class)->group(function(){
     Route::get('/vendor/vendor/profilevendor/Jawaban4', 'jawaban4');
     Route::get('/vendor/vendor/profilevendor/Jawaban5', 'jawaban5');
     Route::get('/vendor/vendor/profilevendor/Jawaban6', 'jawaban6');
+});
+
+//Lengkapi Data
+Route::controller(DataDiriVendorController::class)->group(function(){
+    Route::get('/vendor/login/datadiri', 'indexp');
+    Route::patch('/vendor/login/datadiri/{id}','update')->name('datadiri.update');
+});
+
+Route::controller(KelolaKendaraanController::class)->group(function(){
+    Route::get('/vendor/vendor/Kelola-Kendaraan/atur_alamat', 'index');
+    Route::patch('/vendor/vendor/Kelola-Kendaraan/atur_alamat/{id}', 'update')->name('Kelola-Kendaraan.atur_alamat.update');
 });

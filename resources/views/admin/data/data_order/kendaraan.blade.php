@@ -7,6 +7,7 @@
                 <div class="home-content">
                     <i class='bx bx-menu'></i>
                 </div>
+
                 <div class="search" data-aos="fade-left" data-aos-duration="1000">
                     <label>
                         <input type="text" placeholder="Cari Disini">
@@ -43,6 +44,7 @@
                         </a>
                     </div>
                 </div>
+
                 <div class="card1">
                     <div>
                         <a href="/data/data_order/pickup" style="text-decoration:none">
@@ -52,6 +54,7 @@
                     </div>
                 </div>
             </div>
+
             <!-- data list -->
             <div class="details1 ">
                 <div class="recentOrders">

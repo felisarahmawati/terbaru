@@ -50,7 +50,7 @@
                 </ul>
             </li>
 
-            <li class="list {{ Request::segment(2) == 'pengguna' ? 'active' : '' }}">
+            <li class="list {{ Request::segment(2) == 'akun' ? 'active' : '' }}">
                 <a href="{{ url('/superadmin/akun/pengguna') }}">
                     <i class="bi bi-people-fill"></i>
                     <span class="link_name">Pengguna</span>

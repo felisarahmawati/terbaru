@@ -61,7 +61,7 @@ class SliderHomeController extends Controller
             }
 
             $data = $request->file("image_new")->store("sliderhome");
-        } else {
+        }else {
             $data = $request->gambarLama;
         }
 

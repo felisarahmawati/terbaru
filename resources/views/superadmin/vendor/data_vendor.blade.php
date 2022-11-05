@@ -22,7 +22,7 @@
                 <div class="recentOrders3">
                     <div class="cardHeader">
                         <h2>Data Vendor</h2>
-                        <a href="#" class="btn btn-thema">Cetak</a>
+                        <a href="{{ url ('/superadmin/vendor/print_pdf') }}"  target="_blank" class="btn btn-thema">Cetak PDF</a>
                     </div>
                     <table>
                         <thead>
@@ -31,31 +31,28 @@
                                 <td>No Telp</td>
                                 <td>Alamat</td>
                                 <td>Email</td>
-                                <td>Aksi</td>
+                                <td style="text-align: center">Aksi</td>
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($user as $data_vendor)
                             <tr>
-                                <td>PT. Sinamar</td>
-                                <td>(307) 555 0133</td>
-                                <td>Jln. Jend Sudirman no4</td>
-                                <td>cahaya@mail.com</td>
+                                <td>{{ $data_vendor->name }}</td>
+                                <td>{{ $data_vendor->no_telp }}</td>
+                                <td>{{ $data_vendor->alamat }}</td>
+                                <td>{{ $data_vendor->email }}</td>
 
-                                <td class="td" style="size: 30px;">
-                                    {{-- <button class="btnedit">
-                                        <i class='bx bx-edit'></i>
-                                    </button>
-
-                                    <button class="btndelete">
-                                        <i class='bx bx-trash'></i>
-                                    </button> --}}
-
-                                    <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                <td class="td" style="text-align: center">
+                                    <a href="{{ url('/superadmin/vendor/pdf_vendor/'.$data_vendor->id) }}" target="_blank" class="btn btn-danger btn-sm ">
+                                        <i class="bi bi-arrow-down-square"></i>
+                                    </a>
+                                    <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal{{$data_vendor->id}}"
                                         class="btndetail">
                                         <i class='bx bx-detail'></i>
                                     </button>
                                 </td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -63,38 +60,55 @@
         </div>
 
         <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
+        @foreach ($user as $data_vendor)
+        <div class="modal fade" id="exampleModal{{ $data_vendor->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" style="width: 45%">
                 <div class="modal-content">
                     <div class="modal-header hader">
                         <h2 class="modal-title" id="exampleModalLabel">Data Vendor</h2>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
-                        <label class="label">Vendor ID</label>
-                        <input type="text" class="form-control" id="id" placeholder="2374627">
-                        <label class="label">Nama Vendor</label>
-                        <input type="text" class="form-control" id="namavendor" placeholder="PT. Sinamar">
-                        <label class="label">Nama Pemilik</label>
-                        <input type="text" class="form-control" id="nama" placeholder="Ahmad Arif">
-                        <label class="label">Username</label>
-                        <input type="text" class="form-control" id="username" placeholder="Username">
-                        <label class="label">Saldo</label>
-                        <input type="text" class="form-control" id="saldo" placeholder="Rp 10,000,000">
+                    <div class="modal-body" id="modal-content-detail">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h6>Nama Vendor</h6>
+                                    <label>{{ $data_vendor->nama_vendor }}</label>
+                                    <h6 class="mt-4">Username</h6>
+                                    <label for="">{{ $data_vendor->name }}</label>
+                                    <h6 class="mt-4">Email</h6>
+                                    <label for="">{{ $data_vendor->email }}</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <h6>Nama Pemilik</h6>
+                                    <label for="">{{ $data_vendor->nama_lengkap }}</label>
 
-                        <div class="kk">
-                            <h4>Scan KK & KTP</h4>
-                            <img src="{{ asset('assets/img/kaka.png') }}">
-                            <img src="{{ asset('assets/img/kttp.png') }}" style="margin-left: 20px;">
+                                    <h6 class="mt-4">NIK</h6>
+                                    <label for="">{{ $data_vendor->no_ktp }}</label>
+
+                                    <h6 class="mt-4">Tempat, Tanggal Lahir</h6>
+                                    <label for="">{{ $data_vendor->tmpt_lahir }}, {{ $data_vendor->tgl_lahir }}</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mt-4">
+                                    <p class="text-center">KTP</p>
+                                    <img src="{{ asset('storage/ktp/'.$data_vendor->image_ktp) }}" alt="" style="width: 55%;" class="img-thumbnail rounded mx-auto d-block mt-2 mb-2">
+                                </div>
+                                <div class="col-md-6 mt-4">
+                                    <p class="text-center">KK</p>
+                                    <img src="{{ asset('storage/kk/'.$data_vendor->image_kk) }}" alt="" style="width: 55%;" class="img-thumbnail rounded mx-auto d-block mt-2 mb-2">
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="modal-footer d-md-block">
-                        <button type="button" class="btn-sm btn-primary">Edit</button>
-                        <button type="button" class="btn-sm btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <div class="modal-footer d-md-block">
+                            {{-- <button type="button" class="btn-sm btn-primary">Edit</button> --}}
+                            <button type="button" class="btn-sm btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-
+        @endforeach
     </section>
 @endsection

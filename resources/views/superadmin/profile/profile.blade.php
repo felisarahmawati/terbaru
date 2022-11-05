@@ -58,7 +58,7 @@
                     <div class="col-lg-8 col-md-6 mt-4 pe-2 ps-2 mb-1">
                         <div class="card-profile d-flex flex-column px-0 py-4">
                             <div class="id-user px-3">
-                                <h6 class="mb-0 fw-bold float-left">Account ID : {{ Auth::user()->id }}</h6>
+                                <h6 class="mb-0 fw-bold float-left">Account ID : {{ Auth::user()->id_role }}</h6>
                             </div>
                             <hr width="100%" color="#c0c0c0">
                             <div class=" p-3">

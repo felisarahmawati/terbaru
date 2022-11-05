@@ -46,19 +46,19 @@ class UpdatephotoFinanceController extends Controller
         $user->kota_kab = $request->kota_kab;
 
 
-        if ($request->filled('old_password')) { //update password lama ke baru
+        if($request->filled('old_password')) { //update password lama ke baru
             if (Hash::check($request->old_password, $user->password)) {
                 $user->update([
                     'password' => Hash::make($request->password)
                 ]);
-            } else {
+            }else {
                 return back()
                     ->withErrors(['old_password' => __('Please enter the correct password')])
                     ->withInput();
             }
         }
 
-        if (request()->hasFile('photo')) {
+        if(request()->hasFile('photo')) {
             if($user->photo && file_exists(storage_path('app/public/photos/' . $user->photo))){
                 Storage::delete('app/public/photos/'.$user->photo);
             }

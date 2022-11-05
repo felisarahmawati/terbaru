@@ -35,7 +35,7 @@
 
                     <div class="card2">
                         <div>
-                            <a href="/vendor/vendor/Kelola-Barang/layanan_step1" style="text-decoration:none">
+                            <a href="/vendor/vendor/Kelola_Barang/layanan_step1" style="text-decoration:none">
                                 <div class="cardName2">Barang
                                 </div>
                             </a>
@@ -43,7 +43,7 @@
                     </div>
                     <div class="card1">
                         <div>
-                            <a href="/vendor/vendor/Kelola-PickUp/layanan_step1" style="text-decoration:none">
+                            <a href="/vendor/vendor/Kelola-Pickup/layanan_step1" style="text-decoration:none">
                                 <div class="cardName1">Pick Up
                                 </div>
                             </a>

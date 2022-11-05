@@ -63,7 +63,7 @@ class KategoriController extends Controller
             }
 
             $data = $request->file("image_new")->store("kategori");
-        } else {
+        }else {
             $data = $request->gambarLama;
         }
 

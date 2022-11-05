@@ -4,17 +4,19 @@
     <label>Judul</label>
     <input type="text" name="judul" class="form-control @error('judul') is-invalid @enderror" value="{{ old('judul') }}{{ $edit->judul }}">
     @error('judul')
-    <div class="alert alert-danger">{{ $message }}</div>
+        <div class="alert alert-danger">
+            {{ $message }}
+        </div>
     @enderror
 </div>
 
 <div class="form-group">
     <label>Deskripsi</label>
-    <textarea name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror"
-    value="{{ old('deskripsi') }}" id="edit" >{{ $edit->deskripsi }}
-    </textarea>
+    <textarea name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror" value="{{ old('deskripsi') }}" id="edit" >{{ $edit->deskripsi }}</textarea>
     @error('deskripsi')
-    <div class="alert alert-danger">{{ $message }}</div>
+        <div class="alert alert-danger">
+            {{ $message }}
+        </div>
     @enderror
 </div>
 

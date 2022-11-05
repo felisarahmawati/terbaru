@@ -13,12 +13,6 @@
                     <div class="recentOrders3">
                         <table>
                             <div class="recentOrders mb-2">
-                                {{-- <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                                    <label class="form-check-label" for="flexCheckChecked">
-                                      Select All
-                                    </label>
-                                </div> --}}
                                 <!-- Search -->
                                 <div class="search" data-aos="fade-left" data-aos-duration="1000">
                                     <label>
@@ -80,7 +74,6 @@
                                         </td>
                                     </tr>
                                 </tbody>
-
                             </table>
                         </div>
                     </div>

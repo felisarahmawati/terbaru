@@ -14,30 +14,6 @@
             </div>
         </div>
 
-        {{-- <!-- top nav -->
-        <div class="cardBox1">
-            <div class="card2">
-                <div>
-                    <div class="cardName2">Kendaraan</div>
-                </div>
-            </div>
-            <div class="card1">
-                <div>
-                    <div class="cardName1">Barang</div>
-                </div>
-            </div>
-            <div class="card1">
-                <div>
-                    <div class="cardName1">Bangunan</div>
-                </div>
-            </div>
-            <div class="card1">
-                <div>
-                    <div class="cardName1">Pick up</div>
-                </div>
-            </div>
-        </div> --}}
-
         <!-- data list -->
         <div class="details1">
             <div class="recentOrders">

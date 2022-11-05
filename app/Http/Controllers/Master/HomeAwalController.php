@@ -66,7 +66,7 @@ class HomeAwalController extends Controller
             }
 
             $data = $request->file("image_new")->store("homeawal");
-        } else {
+        }else {
             $data = $request->gambarLama;
         }
 

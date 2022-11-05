@@ -21,9 +21,6 @@
                         </div>
                     </a>
                 </div>
-                <!-- <div class="iconBx1">
-                            <ion-icon name="car-outline"></ion-icon>
-                        </div> -->
             </div>
 
             <div class="card1">

@@ -17,6 +17,10 @@ class PenggunaController extends Controller
             "role" => Role::all()
         ];
 
+        // $data = [
+        //     "user" => User::where("id_role", 3)->get()
+        // ];
+
         return view('superadmin.akun.pengguna.index', $data);
     }
 

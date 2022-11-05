@@ -48,14 +48,14 @@
                                         </div>
                                     </div>
 
-                                    <div class="form-group">
+                                    {{-- <div class="form-group">
                                         <div class="input-group">
                                             <span class="input-group-addon" id="basic-addon1">
                                                     <i class="fa fa-envelope"></i>
                                                 </span>
                                             <input type="date" name="tgl_lahir" class="form-control" placeholder="Tanggal Lahir" aria-describedby="basic-addon1">
                                         </div>
-                                    </div>
+                                    </div> --}}
 
                                     <div class="form-group">
                                         <div class="input-group">
@@ -66,43 +66,43 @@
                                         </div>
                                     </div>
 
-                                    <div class="form-group">
+                                    {{-- <div class="form-group">
                                         <div class="input-group">
                                             <span class="input-group-addon" id="basic-addon1">
                                                     <i class="fa fa-envelope"></i>
                                                 </span>
                                             <input type="alamat" name="alamat" class="form-control" placeholder="Alamat" aria-describedby="basic-addon1">
                                         </div>
-                                    </div>
+                                    </div> --}}
 
-                                    <div class="form-group">
+                                    {{-- <div class="form-group">
                                         <div class="input-group">
                                             <span class="input-group-addon" id="basic-addon1">
                                                     <i class="fa fa-envelope"></i>
                                                 </span>
                                             <input type="desa" name="desa" class="form-control" placeholder="Desa" aria-describedby="basic-addon1">
                                         </div>
-                                    </div>
+                                    </div> --}}
 
-                                    <div class="form-group">
+                                    {{-- <div class="form-group">
                                         <div class="input-group">
                                             <span class="input-group-addon" id="basic-addon1">
                                                     <i class="fa fa-envelope"></i>
                                                 </span>
                                             <input type="kecamatan" name="kecamatan" class="form-control" placeholder="Kecamatan" aria-describedby="basic-addon1">
                                         </div>
-                                    </div>
+                                    </div> --}}
 
-                                    <div class="form-group">
+                                    {{-- <div class="form-group">
                                         <div class="input-group">
                                             <span class="input-group-addon" id="basic-addon1">
                                                     <i class="fa fa-envelope"></i>
                                                 </span>
                                             <input type="kota_kabupaten" name="kota_kabupaten" class="form-control" placeholder="Kota/Kabupaten" aria-describedby="basic-addon1">
                                         </div>
-                                    </div>
+                                    </div> --}}
 
-                                    <div class="form-group">
+                                    {{-- <div class="form-group">
                                         <div class="input-group">
                                             <select name="id_provinsi" id="id_provinsi">
                                                 <option value="">-- Pilih --</option>
@@ -111,16 +111,16 @@
                                                 @endforeach
                                             </select>
                                         </div>
-                                    </div>
+                                    </div> --}}
 
-                                    <div class="form-group">
+                                    {{-- <div class="form-group">
                                         <div class="input-group">
                                             <span class="input-group-addon" id="basic-addon1">
                                                     <i class="fa fa-envelope"></i>
                                                 </span>
                                             <input type="no_telp" name="no_telp" class="form-control" placeholder="No Telepon" aria-describedby="basic-addon1">
                                         </div>
-                                    </div>
+                                    </div> --}}
 
                                     <div class="form-group">
                                         <div class="input-group">

@@ -52,11 +52,9 @@
                         </div>
                     </a>
                 </div>
-                <!-- <div class="iconBx1">
-                    <ion-icon name="arrow-down-outline"></ion-icon>
-                </div> -->
             </div>
         </div>
+
         <!-- data list -->
         <div class="details1 w-auto">
             <div class="recentOrders">

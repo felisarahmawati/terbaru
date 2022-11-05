@@ -20,9 +20,17 @@ return new class extends Migration
             $table->string('name', 100);
             $table->string('email');
             $table->string('password');
-            $table->text('alamat');
+            $table->text('alamat')->nullable();
             $table->string("no_telp", 30);
             $table->date("tgl_lahir")->nullable();
+            $table->string("nama_lengkap")->nullable();
+            $table->string("nama_vendor")->nullable();
+            $table->string("tmpt_lahir")->nullable();
+            $table->bigInteger("no_ktp")->nullable();
+            $table->string("image_ktp")->nullable();
+            $table->string("image_kk")->nullable();
+            $table->string("image_skck")->nullable();
+            $table->string("lokasi")->nullable();
             $table->string('provinsi', 50)->nullable();
             $table->string('kecamatan')->nullable();
             $table->string('kota_kab')->nullable();

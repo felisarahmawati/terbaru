@@ -24,9 +24,6 @@
                         </div>
                     </a>
                 </div>
-                <!-- <div class="iconBx1">
-                                    <ion-icon name="car-outline"></ion-icon>
-                                </div> -->
             </div>
 
             <div class="card1">
@@ -36,9 +33,6 @@
                         </div>
                     </a>
                 </div>
-                <!-- <div class="iconBx1">
-                                    <ion-icon name="cube-outline"></ion-icon>
-                                </div> -->
             </div>
 
             <div class="card1">
@@ -48,9 +42,6 @@
                         </div>
                     </a>
                 </div>
-                <!-- <div class="iconBx1">
-                                    <ion-icon name="home-outline"></ion-icon>
-                                </div> -->
             </div>
             <div class="card2">
                 <div>
@@ -59,11 +50,9 @@
                         </div>
                     </a>
                 </div>
-                <!-- <div class="iconBx1">
-                                    <ion-icon name="arrow-down-outline"></ion-icon>
-                                </div> -->
             </div>
         </div>
+
         <!-- data list -->
         <div class="details1 w-auto">
             <div class="recentOrders">

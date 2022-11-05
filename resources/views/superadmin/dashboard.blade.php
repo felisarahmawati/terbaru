@@ -166,8 +166,7 @@
                             </td>
                         </tr>
                         @endfor
-                    </table>
-                </div>
+                </table>
             </div>
         </div>
     </div>

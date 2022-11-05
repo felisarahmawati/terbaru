@@ -41,7 +41,7 @@ class FaqController extends Controller
 
     public function update(Request $request)
     {
-       faq::where("id", $request->id)->update([
+        faq::where("id", $request->id)->update([
             "pertanyaan" =>  $request->pertanyaan,
             "jawaban" => $request->jawaban,
         ]);

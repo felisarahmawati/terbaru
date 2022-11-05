@@ -34,7 +34,7 @@
                                 <td>Email</td>
                                 <td>Alamat</td>
                                 <td>Jabatan</td>
-                                <td class="col-md-3 text-center">Aksi</td>
+                                <td>Aksi</td>
                             </tr>
                         </thead>
                         <tbody>
@@ -46,18 +46,18 @@
                                 <td>{{ $pengguna->alamat }}</td>
                                 <td>{{ $pengguna->id_role }}</td>
                                 <td style="size: 20px;">
-                                    <div class="row">
+                                    <div class="row align-center" >
                                         {{-- <div class="col-md-2 text-end">
                                             <button onclick="editPengguna({{$pengguna->id}})" type="button" class="btnedit" data-bs-toggle="modal" data-bs-target="#exampleModalEdit">
                                                 <i class='bx bx-edit'></i>
                                             </button>
                                         </div> --}}
-                                        <div class="col-md-6 text-end">
+                                        {{-- <div class="col-md-6 text-end">
                                             <button onclick="" type="button" class="btndetail" data-bs-toggle="modal" data-bs-target="#exampleModaldetail">
                                                 Detail
                                             </button>
-                                        </div>
-                                        <div class="col-md-2 text-end">
+                                        </div> --}}
+                                        <div class="col-md-6 text-end">
                                             <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="#" method="POST">
                                                 @csrf
                                                 @method('DELETE')

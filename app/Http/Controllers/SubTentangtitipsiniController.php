@@ -70,7 +70,7 @@ class SubTentangtitipsiniController extends Controller
             }
 
             $data = $request->file("image_new")->store("tentangtitipsini");
-        } else {
+        }else {
             $data = $request->gambarLama;
         }
 

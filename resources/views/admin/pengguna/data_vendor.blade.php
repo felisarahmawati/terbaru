@@ -1,8 +1,8 @@
 @extends('layouts_admin.main')
 @section('content')
+
 <section class="home-section">
     <div class="main">
-
         <div class="topbar">
             <div class="home-content">
                 <i class='bx bx-menu'></i>
@@ -15,15 +15,12 @@
             </div>
         </div>
 
-        <!-- top nav -->
-       
         <!-- data list -->
         <div class="details1">
             <div class="recentOrders">
                 <div class="cardHeader">
                     <h2>Verifikasi Vendor</h2>
                 </div>
-                
                 <table class="table-borderless mt-3 w-auto">
                     <thead>
                         <tr>
@@ -35,17 +32,20 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Gudang Abadi</td>
-                            <td>Angelie</td>
-                            <td>angel</td>
-                            <td>angelie@gmail.com</td>
-                            <td class="td" style="size: 30px;">
-                                <button onclick="detail" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalDetail">
-                                    Detail
-                                </button>
-                            </td>
-                        </tr>
+                        @foreach ($user as $vendor)
+                            <tr>
+                                <td>{{ $vendor->nama_vendor }}</td>
+                                <td>{{ $vendor->nama_lengkap }}</td>
+                                <td>{{ $vendor->name }}</td>
+                                <td>{{ $vendor->email }}</td>
+                                <td class="td" style="text-align: center">
+                                    <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModalDetail{{$vendor->id}}"
+                                        class="btndetail">
+                                        <i class='bx bx-detail'></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -54,7 +54,8 @@
 </section>
 
 {{-- Detail --}}
-<div class="modal fade" id="exampleModalDetail" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+@foreach($user as $vendor)
+<div class="modal fade" id="exampleModalDetail{{$vendor->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" style="width: 60%">
         <div class="modal-content">
             <div class="modal-header hader text-center">
@@ -65,38 +66,41 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6">
-                            
+
                             <h5>Nama Vendor</h5>
-                            <label>Titipajasay</label>
-                            
+                            <label>{{ $vendor->nama_vendor }}</label>
+
                             <h5 class="mt-4">Username</h5>
-                            <label for="">titipajasay</label>
+                            <label for="">{{ $vendor->name }}</label>
 
                             <h5 class="mt-4">Email</h5>
-                            <label for="">titipajasay@gmail.com</label>
+                            <label for="">{{ $vendor->email }}</label>
                         </div>
+
                         <div class="col-md-6">
                             <h5>Nama Pemilik</h5>
-                            <label for="">Alvi nurbaetri</label>
+                            <label for="">{{ $vendor->nama_lengkap }}</label>
 
                             <h5 class="mt-4">NIK</h5>
-                            <label for="">321210987654673</label>
+                            <label for="">{{ $vendor->no_ktp }}</label>
 
                             <h5 class="mt-4">Tempat, Tanggal Lahir</h5>
-                            <label for="">Indramayu, 12 September 2007</label>
+                            <label for="">{{ $vendor->tmpt_lahir }}, {{ $vendor->tgl_lahir }}</label>
                         </div>
                     </div>
+
                     <div class="row">
                         <div class="col-md-6 mt-4">
                             <p class="text-center">KTP</p>
-                            <img src="{{ asset('assets/img/profile.png') }}" alt="" style="width: 50%;" class="img-thumbnail rounded mx-auto d-block mt-2 mb-2">
+                            <img src="{{ asset('storage/ktp/'.$vendor->image_ktp) }}" alt="" style="width: 50%;" class="img-thumbnail rounded mx-auto d-block mt-2 mb-2">
                         </div>
-                        
+
                         <div class="col-md-6 mt-4">
                             <p class="text-center">SKCK</p>
-                            <img src="{{ asset('assets/img/profile.png') }}" alt="" style="width: 50%;" class="img-thumbnail rounded mx-auto d-block mt-2 mb-2">
+                            <img src="{{ asset('storage/skck/'.$vendor->image_skck) }}" alt="" style="width: 50%;" class="img-thumbnail rounded mx-auto d-block mt-2 mb-2">
                         </div>
                     </div>
+
                     <div class="row">
                         <div class="col-md-6 text-end">
                             <button onclick="verifikasi" type="button" class="btn btn-success mt-4 end" data-bs-toggle="modal" data-bs-target="#verifikasi">
@@ -105,7 +109,7 @@
                         </div>
                         <div class="col-md-6">
                             <button onclick="tolak" type="button" class="btn btn-danger mt-4 end" data-bs-toggle="modal" data-bs-target="#tolak">
-                                 Tolak 
+                                 Tolak
                             </button>
                         </div>
                     </div>
@@ -117,6 +121,7 @@
         </div>
     </div>
 </div>
+@endforeach
 {{-- End --}}
 
 {{-- Verifikasi --}}
@@ -177,7 +182,7 @@
         }
     }
 
- 
+
 
     function detail{
         $.ajax({

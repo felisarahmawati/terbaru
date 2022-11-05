@@ -15,19 +15,19 @@
                     <h4>Layanan</h4>
                 </div>
             </div>
-    
+
             <div class="details3">
                 <div class="recentOrders3">
                     <div class="cardHeader">
                         <h4>Slidernya layanan</h4>
-                        <a href="#" class="btn btn-thema"data-bs-toggle="modal" data-bs-target="#exampleModalTambah" class="btn btn-primary fw-bold 
+                        <a href="#" class="btn btn-thema"data-bs-toggle="modal" data-bs-target="#exampleModalTambah" class="btn btn-primary fw-bold
                         rounded-pill px-4 shadow float-end"><i class='bx bx-plus'></i> Tambah</a>
                     </div>
                     <br>
-                    @if (session('berhasil'))
-                    <div class="alert alert-success">
-                        {{ session('berhasil')}}
-                    </div>
+                    @if(session('berhasil'))
+                        <div class="alert alert-success">
+                            {{ session('berhasil')}}
+                        </div>
                     @endif
                     <table>
                         <thead>
@@ -86,64 +86,61 @@
 {{-- Modal Tambah --}}
 <div class="modal fade" id="exampleModalTambah" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header hader">
-            <h3 class="modal-title" id="exampleModalLabel">
-                Tambah Layanan Slider
-            </h3>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <form action="{{ url('/superadmin/slider/layanan_slider')}}" method="POST" enctype="multipart/form-data">
-            @csrf
-            <div class="modal-body">
-
-                <div class="form-group">
-                    <label for="judul">judul</label>
-                    <input type="text" class="form-control" name="judul" id="judul" placeholder="Masukkan judul"
-                    @error('judul') is-invalid @enderror" value="{{ old('judul') }}">
-                    @error('judul')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                </div>
-
-                <div class="form-group">
-                    <label>Deskripsi</label>
-                    <textarea name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror"
-                    value="{{ old('deskripsi') }}" id="tambah" >
-                    </textarea>
-                    @error('deskripsi')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                </div>
-
-                <div class="form-group">
-                    <label>Status Penitipan</label>
-                    <div>
-                        <select class="form-control mb-3" name="status">
-                            <option value="active">Active</option>
-                            <option value="deactive">Deactive</option>
-                        </select>
-                        @error('status')
-                            <p class="text-danger">{{$message}}</p>
+        <div class="modal-content">
+            <div class="modal-header hader">
+                <h3 class="modal-title" id="exampleModalLabel">
+                    Tambah Layanan Slider
+                </h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="{{ url('/superadmin/slider/layanan_slider')}}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="judul">judul</label>
+                        <input type="text" class="form-control" name="judul" id="judul" placeholder="Masukkan judul"
+                            @error('judul') is-invalid @enderror value="{{ old('judul') }}">
+                            @error('judul')
+                            <div class="alert alert-danger">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                    </div>
+                    <div class="form-group">
+                        <label>Deskripsi</label>
+                        <textarea name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror" value="{{ old('deskripsi') }}" id="tambah" ></textarea>
+                        @error('deskripsi')
+                            <div class="alert alert-danger">
+                                {{ $message }}
+                            </div>
                         @enderror
                     </div>
+                    <div class="form-group">
+                        <label>Status Penitipan</label>
+                        <div>
+                            <select class="form-control mb-3" name="status">
+                                <option value="active">Active</option>
+                                <option value="deactive">Deactive</option>
+                            </select>
+                            @error('status')
+                                <p class="text-danger">{{$message}}</p>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="image"> Gambar </label>
+                        <input type="file" class="form-control" name="image" id="image">
+                    </div>
                 </div>
-
-                <div class="form-group">
-                    <label for="image"> Gambar </label>
-                    <input type="file" class="form-control" name="image" id="image">
+                <div class="modal-footer d-md-block">
+                    <button type="submit" class="btn btn-primary btn-sm">Simpan</button>
+                    <button type="button" class="btn btn-danger btn-sm">Batal</button>
                 </div>
-
-            </div>
-            <div class="modal-footer d-md-block">
-                <button type="submit" class="btn btn-primary btn-sm">Simpan</button>
-                <button type="button" class="btn btn-danger btn-sm">Batal</button>
-            </div>
-        </form>
-      </div>
+            </form>
+        </div>
     </div>
 </div>
-        
+
 <!-- Modal Edit -->
 <div class="modal fade" id="exampleModalEdit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" style="width: 50%">
