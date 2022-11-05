@@ -279,6 +279,13 @@ Route::group(["middleware" => ["autentikasi"]], function() {
                 Route::resource("pengguna", PenggunaController::class);
                 
             });
+            Route::get("/superadmin/akun/pengguna/users/pdf_vendor", function() {
+                return view("superadmin.akun.pengguna.users.pdf_vendor");
+            });
+
+            // Route::get('/superadmin/akun/pengguna/users/pdf_vendor', function () {
+            //     return view('superadmin.akun.pengguna.users.pdf_vendor');
+            // });
 
             Route::prefix("master")->group(function() {
                 Route::get("/kategori/edit", [KategoriController::class, "edit"]);
@@ -386,6 +393,8 @@ route::controller(Datapenggunacontroller::class)->group(function(){
     Route::get('/superadmin/akun/pengguna/users/customer', 'customer');
     Route::get('/superadmin/verifikasi/data_vendor', 'verifikasi_vendor');
     Route::get('/superadmin/verifikasi/verifikasi_layanan', 'verifikasi_layanan');
+    Route::get('/superadmin/akun/pengguna/users/pdf_vendor', 'pdf_vendor');
+
 });
 
 //Kebijakan Privasi

@@ -94,21 +94,18 @@
                     </div>
                 </div>
             </li>
-            <li class="list {{ Request::segment(2) == 'transaksi' ? 'active' : '' }}">
+            <li class="list {{ Request::segment(2) == 'Transaksi' ? 'active' : '' }}">
                 <div class="iocn-link">
-                    <a>
-                        <i class="fa-thin fa-hands-holding-dollar"></i>
-                        <span class="link_name dropBtn">Transaksi</span>
+                    <a href="{{ url ('/admin/transaksi/transaksi') }}">
+                        <i class='bx bxs-shopping-bags'></i>
+                        <span class="link_name">Transaksi</span>
                     </a>
-        
+                   
                 </div>
                 {{-- <a href="{{ url ('/admin/transaksi/transaksi') }}">
                     <i class="fa-thin fa-hands-holding-dollar"></i>
                     <span class="link_name">Transaksi</span>
                 </a> --}}
-                <ul class="sub-menu blank">
-                    <li><a class="link_name" href="{{ url('/admin/transaksi/transaksi') }}">Transaksi</a></li>
-                </ul>
             </li>
             <li class="list {{ Request::segment(2) == 'vendor' ? 'active' : '' }}">
                 <div class="iocn-link">

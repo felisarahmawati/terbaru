@@ -7,6 +7,9 @@
             <div class="home-content">
                 <i class='bx bx-menu'></i>
             </div>
+            <div class="home-content" id="liveToastBtn">
+                <i class='bx bx-bell' style="font-size: 35px; cursor: pointer; margin-top:13px; margin-left:1650%"></i>
+            </div>
         </div>
 
         <div class="cardBox" data-aos="fade-up" data-aos-delay="100">
@@ -73,5 +76,28 @@
             </div> --}}
         </div>
     </div>
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+          <div class="toast-header">
+            <strong class="me-auto">Notifikasi Baru</strong>
+            <small>11 menit yang lalu</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+          </div>
+          <div class="toast-body">
+            Layanan mu akan segera selesai
+          </div>
+        </div>
+    </div>
+    <script>
+        const toastTrigger = document.getElementById('liveToastBtn')
+        const toastLiveExample = document.getElementById('liveToast')
+        if(toastTrigger) {
+            toastTrigger.addEventListener('click', () => {
+                const toast = new bootstrap.Toast(toastLiveExample)
+    
+                toast.show()
+            })
+        }
+    </script>
 </section>
 @endsection

@@ -32,4 +32,8 @@ class Datapenggunacontroller extends Controller
     {
         return view("superadmin.verifikasi.verifikasi_layanan");
     }
+    public function pdf_vendor()
+    {
+        return view("superadmin.akun.pengguna.users.pdf_vendor");
+    }
 }
