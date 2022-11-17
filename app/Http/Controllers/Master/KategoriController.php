@@ -16,7 +16,7 @@ class KategoriController extends Controller
             "data_kategori" => Kategori::get()
         ];
 
-        return view("superadmin.master.kategori.index", $data);
+        return view("superadmin.layanan.kategori.index", $data);
     }
 
     public function store(Request $request)
@@ -46,7 +46,7 @@ class KategoriController extends Controller
             "edit" => Kategori::where("id", $request->id)->first()
         ];
 
-        return view("superadmin.master.kategori.edit", $data);
+        return view("superadmin.layanan.kategori.edit", $data);
     }
 
     public function update(Request $request)
@@ -83,7 +83,7 @@ class KategoriController extends Controller
             $request->id)->first()
         ];
 
-        return view("superadmin.master.kategori.detail", $data);
+        return view("superadmin.layanan.kategori.detail", $data);
     }
 
     public function destroy (Kategori $kategori)

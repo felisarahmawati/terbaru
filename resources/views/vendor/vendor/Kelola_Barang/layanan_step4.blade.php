@@ -118,7 +118,7 @@
                 <div class="modal-content">
 
                     <div class="text-center mt-4 mb-4">
-                        <img src="../../assets/img/centanghijau.png" alt="centangHijau" style="width: 100px; height:100px">
+                        <img src="{{ asset('assets/img/centanghijauuu.png') }}" alt="centangHijau" style="width: 100px; height:100px">
                         <p class="congratulations" style="padding-top: 20px"><b>Selamat!!!<b></p>
                         <h5 class="berhasil" style="padding-top: 5px; color: grey">Selamat anda telah berhasil
                             membuat layanan.!</h5>

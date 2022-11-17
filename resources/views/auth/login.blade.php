@@ -80,8 +80,12 @@
                 <div class="col-lg-12">
                     <div class="register card auth-box mx-auto my-auto">
                         <div class="card-block">
+                            @if (session('gagal'))
+                                    <div class="alert alert-danger">
+                                        {{ session('gagal')}}
+                                    </div>
+                                    @endif
                             <h6 class="fw-bold text-start">LOG IN TO YOUR ACCOUNT</h6><hr>
-
                             <form action="{{ url('/login') }}" method="POST">
                                 {{ csrf_field() }}
                                 <div class="user-details">

@@ -93,7 +93,7 @@
                 </h3>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="{{ url('/superadmin/slider/layanan_slider')}}" method="POST" enctype="multipart/form-data">
+            <form action="{{ url('/superadmin/layanan/layanan_slider')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-body">
                     <div class="form-group">
@@ -151,7 +151,7 @@
                 </h3>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="{{ url('/superadmin/slider/layanan_slider/simpan') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ url('/superadmin/layanan/layanan_slider/simpan') }}" method="POST" enctype="multipart/form-data">
                 @method("PUT")
                 {{ csrf_field() }}
                 <div class="modal-body" id="modal-content-edit">
@@ -211,7 +211,7 @@
 
     function editLayananSlider(id) {
         $.ajax({
-            url: "{{ url('/superadmin/slider/layanan_slider/edit') }}",
+            url: "{{ url('/superadmin/layanan/layanan_slider/edit') }}",
             type: "GET",
             data: {
                 id: id
@@ -226,7 +226,7 @@
     function detailLayananSlider(id)
     {
         $.ajax({
-            url: "{{ url('/superadmin/slider/layanan_slider/detail') }}",
+            url: "{{ url('/superadmin/layanan/layanan_slider/detail') }}",
             type: "GET",
             data: {
                 id:id

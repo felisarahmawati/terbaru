@@ -46,7 +46,7 @@
                             @foreach ($data_tentang as $index)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td><img src="{{ url('/storage/' .$index->image) }}" style="width: 50%;"></td>
+                                <td><img src="{{ url('/storage/' .$index->image) }}" style="width: 45px;"></td>
                                 <td>{{ $index->judul }}</td>
                                 <td>{{ $index->baris1 }}</td>
                                 <td>{{ $index->baris2 }}</td>
@@ -59,7 +59,7 @@
                                                 <i class='bx bx-edit'></i>
                                             </button>
                                         </div>
-                                        <div class="col-md-4 text-end">
+                                        {{-- <div class="col-md-4 text-end">
                                             <form onsubmit="return confirm('Apakah anda yakin ?');" action="{{ route('tentangtitipsini.destroy', $index->id)}}" method="POST">
                                                 @csrf
                                                 @method("DELETE")
@@ -67,7 +67,7 @@
                                                     <i class="bx bxs-trash"></i>
                                                 </button>
                                             </form>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </td>
                             </tr>
@@ -86,7 +86,7 @@
       <div class="modal-content">
         <div class="modal-header hader">
             <h3 class="modal-title" id="exampleModalLabel">
-                Tambah Home
+                Tambah Tentang
             </h3>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
@@ -155,7 +155,7 @@
                 <h3 class="modal-title" id="exampleModalLabel">
                     Edit Tentangtitipsini
                 </h3>
-                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="{{ url('/superadmin/master/tentangtitipsini/simpan') }}" method="POST" enctype="multipart/form-data">
                 @method("PUT")

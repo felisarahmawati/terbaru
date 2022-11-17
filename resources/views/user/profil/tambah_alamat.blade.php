@@ -1,16 +1,16 @@
 @extends("layouts_user.main")
 @section('container')
 
-<section id="services" class="services section-bg" style="padding-top: 100px;">
+<section id="services" class="services section-bg" style="padding-top: 100px; padding-left:185px">
     <div class="container mt-4 mb-4">
         <div class="row row-cols-1 row-cols-md-2 g-4">
             @include('user.partials.p_customer')
-            <div class="col" style="width: 700px">
+            <div class="col" style="width: 730px">
                 <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title"><i class="bi bi-arrow-left px-2 "></i>Tambah Alamat</h5>
+                    <div class="card-body ">
+                        <h5 class="card-title">Tambah Alamat</h5>
                         <hr width="100%" color="#c0c0c0">
-                        <form action="{{ url('/user/profil/tambah_alamat') }}" method="POST">
+                        <form action="{{ url('/user/profil/tambah_alamat') }}" method="POST" >
                             @csrf
                             <div class="mb-3">
                                 <label for="exampleFormControlInput1" class="form-label">Nama</label>
@@ -32,10 +32,10 @@
                                     <option value="5">Lampung</option>
                                 </select>
 
-                                <input class="form-control" type="text" name="kota_kabupaten" placeholder="Kota / Kabupaten" aria-label="Disabled input example">
-                                <input class="form-control" type="text" name="kecamatan" placeholder="Kecamatan" aria-label="Disabled input example">
-                                <input class="form-control" type="text" name="detail_alamat" placeholder="Nama Jalan" aria-label="Disabled input example">
-                                <input class="form-control" type="text" name="catatan" placeholder="catatan : masuk gang depan" aria-label="Disabled input example" >
+                                <input class="form-control mt-1" type="text" name="kota_kabupaten" placeholder="Kota / Kabupaten" aria-label="Disabled input example">
+                                <input class="form-control mt-3" type="text" name="kecamatan" placeholder="Kecamatan" aria-label="Disabled input example">
+                                <input class="form-control mt-3" type="text" name="detail_alamat" placeholder="Nama Jalan" aria-label="Disabled input example">
+                                <input class="form-control mt-3" type="text" name="catatan" placeholder="catatan : masuk gang depan" aria-label="Disabled input example" >
                             </div>
 
                         {{--<div>

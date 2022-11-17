@@ -16,7 +16,6 @@
                     </label>
                 </div>
             </div>
-
             <!-- data list -->
             <div class="details3">
                 <div class="recentOrders3">
@@ -41,7 +40,6 @@
                                 <td>{{ $data_vendor->no_telp }}</td>
                                 <td>{{ $data_vendor->alamat }}</td>
                                 <td>{{ $data_vendor->email }}</td>
-
                                 <td class="td" style="text-align: center">
                                     <a href="{{ url('/superadmin/vendor/pdf_vendor/'.$data_vendor->id) }}" target="_blank" class="btn btn-danger btn-sm ">
                                         <i class="bi bi-arrow-down-square"></i>

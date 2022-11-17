@@ -63,9 +63,6 @@
     <input type="file" class="form-control " name="image_new" id="image_new">
 </div>
 
-
-
-
 <script>
     CKEDITOR.replace('edit');
 </script>

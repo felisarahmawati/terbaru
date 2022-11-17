@@ -1,30 +1,49 @@
 @extends("layouts_user.main")
 
 @section('container')
+<section class="align-items-center services section-bg" id="services" style="padding-top: 100px;" data-aos-delay="50">
+    <div class="p-4 container card mt-2" style="width: 75%">
 
-<section id="services" class="services section-bg" style="padding-top: 100px;">
-    <div class="container mt-3 mb-3">
-        <div class="row row-cols-1 row-cols-md-2 g-4">
-            @include('user.partials.p_customer')
-            <div class="" style="width: 700px">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title"><i class="bi bi-arrow-left px-2 "></i>Kebijakan Privasi</h5>
-                        <hr width="100%" color="#c0c0c0">
-                        <div class="row" style="width: 650px">
-                            <div class="col-md">
-                                <div class="isi">
-                                    <p style="text-indent: 45px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit eget tortor facilisis quisque vitae arcu massa. Mauris nunc velit donec porta sem ipsum tortor facilisis mauris. Facilisis elit magna venenatis, enim, diam aenean luctus. Integer dictum ullamcorper urna mollis augue rhoncus, ac.</p>
-                                    <p style="text-indent: 45px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id laoreet fames donec sed. Id lacus purus mattis nam in viverra rutrum risus nibh. A ultrices malesuada lacus sapien. At nulla tempus, libero iaculis orci iaculis.</p>
-                                    <p style="text-indent: 45px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id laoreet fames donec sed. Id lacus purus mattis nam in viverra rutrum risus nibh. A ultrices malesuada lacus sapien. At nulla tempus, libero iaculis orci iaculis.</p>
-                                    <p style="text-indent: 45px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id laoreet fames donec sed. Id lacus purus mattis nam in viverra rutrum risus nibh. A ultrices malesuada lacus sapien. At nulla tempus, libero iaculis orci iaculis.</p>
-                                    <p style="text-indent: 45px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id laoreet fames donec sed. Id lacus purus mattis nam in viverra rutrum risus nibh. A ultrices malesuada lacus sapien. At nulla tempus, libero iaculis orci iaculis.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <div class="" style="font-size: 18px">
+            <div class="card-body">
+                <nav aria-label="breadcrumb " class="card-header" style="height: 40px; width:100%">
+                    <ol class="breadcrumb ">
+                        <li class="breadcrumb-item"><a href="/user/profil/profil">Profile</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Kebijakan Privasi</li>
+                    </ol>
+                </nav>
             </div>
         </div>
+        <div class="p-4" style="font-size: 20px">
+            <p class="text-middle">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit eget tortor facilisis
+                quisque vitae arcu massa. Mauris nunc velit donec porta sem ipsum tortor facilisis
+                mauris. Facilisis elit magna venenatis, enim, diam aenean luctus. Integer dictum
+                ullamcorper urna mollis augue rhoncus, ac.
+                <hr style="width: 100%">
+            </p>
+
+            <p class="text-middle">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit eget tortor facilisis
+                quisque vitae arcu massa. Mauris nunc velit donec porta sem ipsum tortor facilisis
+                mauris. Facilisis elit magna venenatis, enim, diam aenean luctus. Integer dictum
+                ullamcorper urna mollis augue rhoncus, ac.
+            </p>
+            <hr>
+            <p class="text-middle">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit eget tortor facilisis
+                quisque vitae arcu massa. Mauris nunc velit donec porta sem ipsum tortor facilisis
+                mauris. Facilisis elit magna venenatis, enim, diam aenean luctus. Integer dictum
+                ullamcorper urna mollis augue rhoncus, ac.
+            </p>
+            <hr>
+            <p class="text-middle">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit eget tortor facilisis
+                quisque vitae arcu massa. Mauris nunc velit donec porta sem ipsum tortor facilisis
+                mauris. Facilisis elit magna venenatis, enim, diam aenean luctus. Integer dictum
+                ullamcorper urna mollis augue rhoncus, ac.
+            </p>
+        </div>
+    </div>
 </section>
 @endsection

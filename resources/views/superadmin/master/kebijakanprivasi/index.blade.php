@@ -43,15 +43,15 @@
                                     <td>{{ $data->judul }}</td>
                                     <td>{!! $data->isi !!}</td>
                                     <td class="text-end" style="size: 30px;">
-                                    <button onclick="editKebijakanPrivasi({{$data->id}})" class="btnedit" data-bs-toggle="modal" data-bs-target="#exampleModalEdit" class="btn btn-primary fw-bold rounded-pill px-4 shadow float-end">
-                                        <i class='bx bx-edit'></i>
-                                    </button>
-                                    <button onclick="detailKebijakanPrivasi({{$data->id}})" type="button" data-bs-toggle="modal" data-bs-target="#exampleModalDetail" class="btndetail">
-                                        <i class='bx bx-detail'></i>
-                                    </button>
-                                    <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModalHapus{{ $data->id }}" class="btn btn-danger btn-sm fw-bold px-4">
-                                        <i class='bx bx-trash'></i>
-                                    </button>
+                                        <button onclick="editKebijakanPrivasi({{$data->id}})" class="btnedit" data-bs-toggle="modal" data-bs-target="#exampleModalEdit" class="btn btn-primary fw-bold rounded-pill px-4 shadow float-end">
+                                            <i class='bx bx-edit'></i>
+                                        </button>
+                                        <button onclick="detailKebijakanPrivasi({{$data->id}})" type="button" data-bs-toggle="modal" data-bs-target="#exampleModalDetail" class="btndetail">
+                                            <i class='bx bx-detail'></i>
+                                        </button>
+                                        <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModalHapus{{ $data->id }}" class="btn btn-danger btn-sm fw-bold px-4">
+                                            <i class='bx bx-trash'></i>
+                                        </button>
                                     </td>
                                 </tr>
                             @endforeach
@@ -158,17 +158,6 @@
             </div>
         </div>
 
-        <!-- Vendor JS Files -->
-        {{-- <script src="assets/vendor/aos/aos.js"></script>
-        <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-        <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-        <script src="assets/vendor/php-email-form/validate.js"></script>
-        <script src="assets/vendor/swiper/swiper-bundle.min.js"></script> --}}
-
-        <!-- Template Main JS File -->
-        {{-- <script src="assets/js/main.js"></script> --}}
-
         <!--Jquery-->
         <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
         <!-- Alert -->
@@ -200,42 +189,40 @@
         });
     </script>
 
-        <script type="text/javascript">
-            function editKebijakanPrivasi(id) {
-                $.ajax({
-                    url: "{{ url('/superadmin/master/kebijakanprivasi/edit') }}",
-                    type: "GET",
-                    data: {
-                        id: id
-                    },
-                    success: function(data) {
-                        $("#modal-content-edit").html(data);
+    <script type="text/javascript">
+        function editKebijakanPrivasi(id) {
+            $.ajax({
+                url: "{{ url('/superadmin/master/kebijakanprivasi/edit') }}",
+                type: "GET",
+                data: {
+                    id: id
+                },
+            success: function(data) {
+                $("#modal-content-edit").html(data);
+                    return true;
+                }
+            })
+        }
+        function detailKebijakanPrivasi(id) {
+            $.ajax({
+                url: "{{ url('/superadmin/master/kebijakanprivasi/detail') }}",
+                type: "GET",
+                data: {
+                    id: id
+                },
+                success: function(data) {
+                    $("#modal-content-detail").html(data);
                         return true;
-                    }
-                })
-            }
-            function detailKebijakanPrivasi(id) {
-                $.ajax({
-                    url: "{{ url('/superadmin/master/kebijakanprivasi/detail') }}",
-                    type: "GET",
-                    data: {
-                        id: id
-                    },
-                    success: function(data) {
-                        $("#modal-content-detail").html(data);
-                        return true;
-                    }
-                })
-            }
-        </script>
+                }
+            })
+        }
+    </script>
 
-        {{--Text Editor--}}
-        <script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
-        <script>
-            CKEDITOR.replace('my-editor');
-        </script>
-    </section>
-
-
+    {{--Text Editor--}}
+    <script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace('my-editor');
+    </script>
+</section>
 
 @endsection

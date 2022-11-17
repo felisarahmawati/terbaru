@@ -32,39 +32,27 @@
                                 <td>No</td>
                                 <td>Nama</td>
                                 <td>Email</td>
-                                <td>Alamat</td>
-                                <td>Jabatan</td>
-                                <td>Aksi</td>
+                                <td>No Telepon</td>
+                                <td class="col-md-3 text-center">Alamat</td>
+                                <td class="col-md-3 text-center">Jabatan</td>
+                                <td class="col-md-3 text-center">Aksi</td>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($user as $pengguna)
+                            @foreach ($user as $index => $pengguna)
                             <tr>
-                                <td>{{ $loop->iteration }}</td>
+                                <td scope="row">{{ $index + $user->firstItem() }}</td>
                                 <td>{{ $pengguna->name }}</td>
                                 <td>{{ $pengguna->email }}</td>
-                                <td>{{ $pengguna->alamat }}</td>
-                                <td>{{ $pengguna->id_role }}</td>
+                                <td>{{ $pengguna->no_telp }}</td>
+                                <td class="col-md-3 text-center">{{ $pengguna->alamat }}</td>
+                                <td class="col-md-3 text-center">{{ $pengguna->id_role }}</td>
                                 <td style="size: 20px;">
-                                    <div class="row align-center" >
-                                        {{-- <div class="col-md-2 text-end">
-                                            <button onclick="editPengguna({{$pengguna->id}})" type="button" class="btnedit" data-bs-toggle="modal" data-bs-target="#exampleModalEdit">
-                                                <i class='bx bx-edit'></i>
-                                            </button>
-                                        </div> --}}
-                                        {{-- <div class="col-md-6 text-end">
-                                            <button onclick="" type="button" class="btndetail" data-bs-toggle="modal" data-bs-target="#exampleModaldetail">
+                                    <div class="row">
+                                        <div class="col-md-10 text-end">
+                                            <button onclick="" type="button" class="btndetail" data-bs-toggle="modal" data-bs-target="#exampleModal{{ $pengguna->id }}">
                                                 Detail
                                             </button>
-                                        </div> --}}
-                                        <div class="col-md-6 text-end">
-                                            <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="#" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button class="btndelete" type="submit">
-                                                    <i class='bx bxs-trash'></i>
-                                                </button>
-                                            </form>
                                         </div>
                                     </div>
                                 </td>
@@ -72,6 +60,10 @@
                             @endforeach
                         </tbody>
                     </table>
+                    <div class="my-5">
+                        {{ $user->links() }}
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -99,6 +91,15 @@
                     @enderror
                 </div>
 
+                {{-- <div class="form-group">
+                    <label>
+                        Tanggal Lahir :
+                    </label>
+                    <div class="col mb-6">
+                        <input type="date" class="form-control" id="tgl_lahir" name="tgl_lahir" placeholder="Masukkan tgl_lahir" required>
+                    </div>
+                </div> --}}
+
                 <div class="form-group">
                     <label>Email</label>
                     <input type="email" name="email" class="form-control @error('nama') is-invalid @enderror" placeholder="E-Mail" aria-describedby="basic-addon1">
@@ -106,6 +107,23 @@
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
+
+                <div class="form-group">
+                    <label>Alamat</label>
+                    <div class="col mb-6">
+                        <textarea name="alamat" class="form-control" id="alamat" rows="2" placeholder="Masukkan Alamat" required></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        No. Telepon
+                    </label>
+                    <div class="col mb-6">
+                        <input type="number" class="form-control" id="no_telp" name="no_telp" placeholder="0" required min="1">
+                    </div>
+                </div>
+
 
                 <div class="col mb-7">
                     <label for="password" class="col-sm-2 col-form-label">{{ __('New Password') }}</label>
@@ -126,17 +144,17 @@
                     </div>
                 </div>
 
-                <div class="form-group mb-3">
+                {{-- <div class="form-group mb-3">
                     <label>Jabatan</label>
                     <div>
                         <select class="form-select" name="id_role" id="id_role">
                             <option value="">-- Pilih --</option>
-                            @foreach ($user as $data)
-                             <option value="{{ $data->id }}">{{ $data->id_role }}</option>
+                            @foreach ($user as $pengguna)
+                         <option value="">{{ $pengguna->id_role }}</option>
                             @endforeach
                         </select>
                     </div>
-                </div>
+                </div> --}}
             </div>
 
             <div class="modal-footer d-md-block">
@@ -173,6 +191,47 @@
         </div>
     </div>
 </div>
+
+@foreach($user as $pengguna)
+<div class="modal fade" id="exampleModal{{ $pengguna->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" style="width: 40%">
+        <div class="modal-content">
+            <div class="modal-header hader">
+                <h2 class="modal-title" id="exampleModalLabel">Data {{ $pengguna->name }}</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="modal-content-detail">
+                <div class="card-body">
+                    <div class="form-group row">
+                        <label for="name" class="col-sm-2 col-form-label text-right">Nama</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="name" value="{{ $pengguna->name }}" readonly>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="email" class="col-sm-2 col-form-label text-right"> Email </label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="email" value="{{ $pengguna->email }}" readonly>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="no_telp" class="col-sm-2 col-form-label text-right">No Telp</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="no_telp" value="{{ $pengguna->no_telp }}" readonly>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="alamat" class="col-sm-2 col-form-label text-right">Alamat</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="alamat" value="{{ $pengguna->alamat }}" readonly>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endforeach
 
 <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 <script type="text/javascript">

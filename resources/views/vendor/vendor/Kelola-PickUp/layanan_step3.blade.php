@@ -16,7 +16,7 @@
         <div class="cardBox1">
             <div class="card1">
                 <div>
-                    <a href="/vendor/vendor/Kelola-Kendaraan/kelola_kendaraan" style="text-decoration:none">
+                    <a href="/vendor/vendor/Kelola-Kendaraan/layanan_step1" style="text-decoration:none">
                         <div class="cardName1">Kendaraan
                         </div>
                     </a>
@@ -25,7 +25,7 @@
 
             <div class="card1">
                 <div>
-                    <a href="/vendor/vendor/Kelola-Bangunan/kelola_bangunan" style="text-decoration:none">
+                    <a href="/vendor/vendor/Kelola-Bangunan/layanan_step1" style="text-decoration:none">
                         <div class="cardName1">Bangunan
                         </div>
                     </a>
@@ -34,7 +34,7 @@
 
             <div class="card1">
                 <div>
-                    <a href="/vendor/vendor/Kelola-Barang/kelola_barang" style="text-decoration:none">
+                    <a href="/vendor/vendor/Kelola_Barang/layanan_step1" style="text-decoration:none">
                         <div class="cardName1">Barang
                         </div>
                     </a>
@@ -42,7 +42,7 @@
             </div>
             <div class="card2">
                 <div>
-                    <a href="/vendor/vendor/Kelola-PickUp/kelola_pickup" style="text-decoration:none">
+                    <a href="/vendor/vendor/Kelola-PickUp/layanan_step1" style="text-decoration:none">
                         <div class="cardName2">Pick Up
                         </div>
                     </a>
@@ -103,7 +103,7 @@
                 <div class="modal-content">
 
                         <div class="text-center mt-4 mb-4">
-                          <img src="../../assets/img/centanghijau.png" alt="centangHijau" style="width: 100px; height:100px">
+                          <img src="{{ asset('assets/img/centanghijauuu.png') }}" alt="centangHijau" style="width: 100px; height:100px">
                           <p class="congratulations" style="padding-top: 20px"><b>Selamat!!!<b></p>
                           <h5 class="berhasil" style="padding-top: 5px; color: grey">Selamat anda telah berhasil
                             membuat layanan.!</h5>

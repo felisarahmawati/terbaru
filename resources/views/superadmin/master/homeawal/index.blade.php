@@ -48,9 +48,9 @@
                                 <td>{{ $data->content1 }}</td>
                                 <td>{{ $data->content2 }}</td>
                                 <td>{{ $data->content3 }}</td>
-                                <td>
+                                <td style="size: 20px;">
                                     <div class="row">
-                                        <div class="col-md-4">
+                                        <div class="col-md-7 text-end">
                                             <button onclick="edithomeawal({{ $data->id }})" type="button" class="btnedit" data-bs-toggle="modal" data-bs-target="#exampleModalEdit">
                                                 <i class='bx bx-edit'></i>
                                             </button>
@@ -60,7 +60,7 @@
                                                 <i class='bx bx-detail'></i>
                                             </button>
                                         </div> --}}
-                                        <div class="col-md-4">
+                                        <div class="col-md-3 text-end">
                                             <form onsubmit="return confirm('Apakah anda yakin ?');" action="{{ route('homeawal.destroy', $data->id)}}" method="POST">
                                                 @csrf
                                                 @method("DELETE")

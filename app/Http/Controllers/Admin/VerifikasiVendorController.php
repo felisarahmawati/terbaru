@@ -13,6 +13,15 @@ class VerifikasiVendorController extends Controller
         $data = [
             "user" => User::where("id_role", 4)->get()
         ];
-        return view('admin.pengguna.data_vendor', $data);
+        return view('admin.verifikasi.vendor', $data);
+    }
+
+    public function aktifkan($id)
+    {
+        User::where("id", $id)->update([
+            "status" => 1
+        ]);
+
+        return redirect("/admin/verifikasi/vendor");
     }
 }

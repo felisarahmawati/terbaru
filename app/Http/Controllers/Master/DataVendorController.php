@@ -6,6 +6,7 @@ use PDF;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use PhpParser\Node\Expr\FuncCall;
 
 class DataVendorController extends Controller
 {
@@ -15,24 +16,17 @@ class DataVendorController extends Controller
             "user" => User::where("id_role", 4)->get()
         ];
 
-        return view('superadmin.vendor.data_vendor', $data);
+        return view('superadmin.akun.pengguna.users.vendor', $data);
     }
 
-    public function viewPDF()
+    public function pdf()
     {
-        $pdf = PDF::loadHTML("superadmin.vendor.pdf_vendor");
+            $data = User::where("id_role", 4)->get();
 
-        return $pdf->stream();
+            $pdf = PDF::loadView('superadmin.akun.pengguna.users.print_pdf_vendor', ['user' => $data]);
+
+            return $pdf->download("dvendor.pdf");
     }
-
-   public function pdf()
-   {
-        $data = User::where("id_role", 4)->get();
-
-        $pdf = PDF::loadView('superadmin.vendor.print_pdf', ['user' => $data]);
-
-        return $pdf->download("dvendor.pdf");
-   }
 
    public function download($id)
    {
@@ -40,17 +34,17 @@ class DataVendorController extends Controller
 
         // return view("superadmin.vendor.pdf_vendor", ["user" => $data]);
 
-        $pdf = PDF::loadView('superadmin.vendor.pdf_vendor', ['user' => $data]);
+        $pdf = PDF::loadView('superadmin.akun.pengguna.users.pdf_vendor', ['user' => $data]);
 
-        $pdf->getDomPDF()->setHttpContext(
-            stream_context_create([
-                'ssl' => [
-                    'allow_self_signed'=> TRUE,
-                    'verify_peer' => FALSE,
-                    'verify_peer_name' => FALSE,
-                ]
-            ])
-        );
+        // $pdf->getDomPDF()->setHttpContext(
+        //     stream_context_create([
+        //         'ssl' => [
+        //             'allow_self_signed'=> TRUE,
+        //             'verify_peer' => FALSE,
+        //             'verify_peer_name' => FALSE,
+        //         ]
+        //     ])
+        // );
 
         return $pdf->download("Data-vendor.pdf");
    }

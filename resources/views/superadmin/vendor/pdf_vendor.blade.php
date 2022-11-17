@@ -39,8 +39,7 @@
         <div class="row">
             <div class="col-md-6">
                 <h6>Nama Vendor</h6>
-
-                <label>{{ $user->name }}</label>
+                <label>{{ $user->nama_vendor }}</label>
                 <h6 class="mt-4">Username</h6>
                 <label for="">{{ $user->name }}</label>
                 <h6 class="mt-4">Email</h6>
@@ -66,6 +65,17 @@
                 <img src="{{ public_path('/storage/kk/'.$user->image_kk) }}">
             </div>
         </div>
+
+        {{-- <div class="row">
+            <div class="col-md-6 mt-4">
+                <p class="text-center">KTP</p>
+                <img width="200" src="/storage/ktp/{{ $user->image_ktp }}" alt="">
+            </div>
+            <div class="col-md-6 mt-4">
+                <p class="text-center">KK</p>
+                <img width="200" src="/storage/kk/{{ $user->image_kk }}" alt="">
+            </div>
+        </div> --}}
     </div>
 </body>
 </html>

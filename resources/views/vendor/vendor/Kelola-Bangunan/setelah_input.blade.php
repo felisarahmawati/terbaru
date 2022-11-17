@@ -309,7 +309,7 @@
                                             <div class=" mt-3 mb-3" style="max-width: 100%;">
                                                 <div class="row g-0">
                                                     <div class="col-md-6 mt-3" style="padding-top:15px;">
-                                                        <img src="{{ asset('../../assets/img/car1.jpg') }}"
+                                                        <img src="{{ asset('assets/img/rumah-tipe1.jpg') }}"
                                                             class="img-fluid rounded-start"
                                                             style="width:500px; height:400px" alt="...">
                                                     </div>

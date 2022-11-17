@@ -16,7 +16,7 @@ class LayananSliderController extends Controller
             "layanan_slider" => LayananSlider::get()
         ];
 
-        return view('superadmin.slider.layanan_slider.tambah', $data);
+        return view('superadmin.layanan.layanan_slider.tambah', $data);
     }
 
     public function store(Request $request)
@@ -50,7 +50,7 @@ class LayananSliderController extends Controller
             "edit" => LayananSlider::where("id", $request->id)->first()
         ];
 
-        return view("superadmin.slider.layanan_slider.edit", $data);
+        return view("superadmin.layanan.layanan_slider.edit", $data);
     }
 
     public function update(Request $request)
@@ -90,7 +90,7 @@ class LayananSliderController extends Controller
             "detail" => LayananSlider::where("id", $request->id)->first()
         ];
 
-        return view("superadmin.slider.layanan_slider.detail", $data);
+        return view("superadmin.layanan.layanan_slider.detail", $data);
     }
 
     public function destroy(LayananSlider $layanan_slider)

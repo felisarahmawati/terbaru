@@ -21,6 +21,11 @@ class VendorController extends Controller
         return view('vendor.vendor.profilevendor.notifikasi');
     }
 
+    public function Setting()
+    {
+        return view('vendor.vendor.setting');
+    }
+
     public function OrderanBaru()
     {
         return view('vendor.vendor.order.kendaraan.orderan_baru');

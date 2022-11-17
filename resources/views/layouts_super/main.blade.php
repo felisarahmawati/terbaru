@@ -51,14 +51,58 @@
             </li>
 
             <li class="list {{ Request::segment(2) == 'akun' ? 'active' : '' }}">
+                <div class="iocn-link">
+                    <a>
+                        <i class='bx bx-data'></i>
+                        <span class="link_name dropBtn">Pengguna</span>
+                    </a>
+                    <i class='bx bxs-chevron-down arrow'></i>
+                </div>
+                <div class="sub-menu">
+                    <div class="drop-box">
+                        {{-- <a href="{{ url('/superadmin/akun/role')}}">Role</a> --}}
+                        <a href="/superadmin/akun/pengguna">Semua pengguna</a>
+                        <a href="/superadmin/akun/pengguna/users/customer">Customer</a>
+                        <a href="/superadmin/akun/pengguna/users/vendor">Vendor</a>
+                        <a href="/superadmin/akun/pengguna/users/admin">Admin</a>
+                        <a href="/superadmin/akun/pengguna/users/finance">Finance</a>
+
+                        {{-- <a href="/superadmin/data/pengaturan-user">Pengaturan User</a> --}}
+                    </div>
+                </div>
+            </li>
+
+            <li class="list {{ Request::segment(2) == 'verifikasi' ? 'active' : '' }}">
+                <div class="iocn-link">
+                    <a>
+                        <i class='bx bx-data'></i>
+                        <span class="link_name dropBtn">Verifikasi</span>
+                    </a>
+                    <i class='bx bxs-chevron-down arrow'></i>
+                </div>
+                <div class="sub-menu">
+                    <div class="drop-box">
+                        <a href="/superadmin/verifikasi/data_vendor">Verifikasi Pengguna</a>
+                        <a href="/superadmin/verifikasi/verifikasi_layanan">Verifikasi layanan</a>
+
+                        {{-- <a href="/superadmin/data/pengaturan-user">Pengaturan User</a> --}}
+                    </div>
+                </div>
+            </li>
+            {{-- <li class="list {{ Request::segment(2) == 'pengguna' ? 'active' : '' }}">
                 <a href="{{ url('/superadmin/akun/pengguna') }}">
                     <i class="bi bi-people-fill"></i>
                     <span class="link_name">Pengguna</span>
                 </a>
-                <ul class="sub-menu blank">
-                    <li><a class="link_name" href="{{ url('/superadmin/akun/pengguna') }}">Pengguna</a></li>
-                </ul>
-            </li>
+                <div class="sub-menu">
+                    <div class="drop-box">
+                        <a href="">Customer</a>
+                        <a href="">Vendor</a>
+                        <a href="">Admin</a>
+                        <a href="">Finance</a>
+                    </div>
+                </div>
+            </li> --}}
             {{-- <li class="list {{ Request::segment(2) == 'home' ? 'active' : '' }}">
                 <a href="/homeawal">
                     <i class='bx bx-home'></i>
@@ -68,7 +112,7 @@
                     <li><a class="link_name" href="/homeawal">Home</a></li>
                 </ul>
             </li> --}}
-            <li class="list {{ Request::segment(2) == 'master ' ? 'active' : '' }}">
+            <li class="list {{ Request::segment(2) == 'master' ? 'active' : '' }}">
                 <div class="iocn-link">
                     <a>
                         <i class='bx bx-grid-alt'></i>
@@ -77,23 +121,24 @@
                     <i class='bx bxs-chevron-down arrow'></i>
                 </div>
                 <div class="sub-menu">
+
                     <div class="drop-box">
                         <a href="{{ url('/superadmin/master/homeawal')}}">Home</a>
                     </div>
                     <div class="drop-box">
-                        <a href="{{ url('/superadmin/master/sliderhome')}}">Slider Home</a>
+                        {{-- <a href="{{ url('/superadmin/master/sliderhome')}}">Slider Home</a> --}}
                     </div>
                     <div class="drop-box">
                         <a href="{{ url('/superadmin/master/tentanghome')}}">Tentang</a>
                     </div>
                     <div class="drop-box">
-                        <a href="{{ url('/superadmin/master/slidertentang')}}">Slider Tentang</a>
+                        {{-- <a href="{{ url('/superadmin/master/slidertentang')}}">Slider Tentang</a> --}}
                     </div>
                     <div class="drop-box">
                         <a href="{{ url('/superadmin/master/kontak')}}">Kontak</a>
                     </div>
                     <div class="drop-box">
-                        <a href="{{ url('/superadmin/master/sliderkontak')}}">Slider Kontak</a>
+                        {{-- <a href="{{ url('/superadmin/master/sliderkontak')}}">Slider Kontak</a> --}}
                     </div>
                     <div class="drop-box">
                         <a href="/superadmin/master/kebijakanprivasi/index">Kebijakan Privasi</a>
@@ -107,7 +152,7 @@
                 </div>
             </li>
 
-            <li class="list {{ Request::segment(2) == 'layanan ' ? 'active' : '' }}">
+            <li class="list {{ Request::segment(2) == 'layanan' ? 'active' : '' }}">
                 <div class="iocn-link">
                     <a>
                         <i class="bi bi-folder2-open"></i>
@@ -120,7 +165,7 @@
                         <a href="{{ url('/superadmin/layanan/layanan')}}">Layanan</a>
                     </div>
                     <div class="drop-box">
-                        <a href="{{ url('/superadmin/master/kategori')}}">Kategori</a>
+                        <a href="{{ url('/superadmin/layanan/kategori')}}">Kategori</a>
                     </div>
                     <div class="drop-box">
                         <a href="{{ url('/superadmin/layanan/sublayanan') }}">Sub Layanan</a>
@@ -128,11 +173,11 @@
                     <div class="drop-box">
                         <a href="{{ url('/superadmin/layanan/detlayanan')}}">Details Sub Layanan</a>
                     </div>
-                    <div class="drop-box">
+                    {{-- <div class="drop-box">
                         <a href="{{ url('/subslider') }}">Sub Slider</a>
-                    </div>
+                    </div> --}}
                     <div class="drop-box">
-                        <a href="{{ url('/superadmin/slider/layanan_slider') }}">Layanan Slider</a>
+                        <a href="{{ url('/superadmin/layanan/layanan_slider') }}">Layanan Slider</a>
                     </div>
                 </div>
             </li>
@@ -161,28 +206,13 @@
                 </div>
                 <div class="sub-menu">
                     <div class="drop-box">
-                        <a href="/superadmin/data/order">Order</a>
-                        <a href="/superadmin/data/payment">Payment</a>
+                        <a href="/superadmin/data/data_order/kendaraan">Order</a>
+                        <a href="/superadmin/data/data_payment">Payment</a>
                         {{-- <a href="/superadmin/data/pengaturan-user">Pengaturan User</a> --}}
                     </div>
                 </div>
             </li>
-            <li class="list {{ Request::segment(2) == 'vendor' ? 'active' : '' }}">
-                <div class="iocn-link">
-                    <a>
-                        <i class='bx bxs-shopping-bags'></i>
-                        <span class="link_name dropBtn">Vendor</span>
-                    </a>
-                    <i class='bx bxs-chevron-down arrow'></i>
-                </div>
-                <div class="sub-menu">
-                    <div class="drop-box">
-                        <a href="/superadmin/vendor/data_vendor">Data Vendor</a>
-                        <a href="/superadmin/vendor/trans">Pengambilan Uang</a>
-                        <a href="/superadmin/vendor/data_pick_up">Data pemesanan pick up</a>
-                    </div>
-                </div>
-            </li>
+
 
             <li class="list {{ Request::segment(2) == 'transaksi' ? 'active' : '' }}">
                 <a href="{{ url ('/superadmin/transaksi/transaksi') }}">
@@ -200,17 +230,25 @@
                         <i class="bi bi-bag-fill"></i>
                         <span class="link_name dropBtn">Penarikan</span>
                     </a>
+                    <i class='bx bxs-chevron-down arrow'></i>
                 </div>
+                    <div class="sub-menu">
+                        <div class="drop-box">
+                            <a href="/superadmin/penarikan/penarikan">Penarikan Vendor</a>
+                            {{-- <a href="/superadmin/penarikan/penarikan">-</a> --}}
+                        </div>
+                    </div>
+                </li>
             </li>
 
-            <li class="list {{ Request::segment(2) == 'pemasukan' ? 'active' : '' }}">
+            {{-- <li class="list {{ Request::segment(2) == 'pemasukan' ? 'active' : '' }}">
                 <div class="iocn-link">
                     <a>
                         <i class="bi bi-currency-dollar"></i>
                         <span class="link_name dropBtn">Pemasukan</span>
                     </a>
                 </div>
-            </li>
+            </li> --}}
 
             {{-- <li class="list {{ Request::segment(2) == 'role' ? 'active' : '' }}">
                 <a href="{{ url('/superadmin/akun/role') }}">
@@ -297,6 +335,9 @@
             sidebar.classList.toggle("close");
         });
     </script>
+    <!-- fullCalendar -->
+    <script src="{!! asset('bower_components/moment/moment.js') !!}"></script>
+    <script src="{!! asset('bower_components/fullcalendar/dist/fullcalendar.min.js') !!}"></script>
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>

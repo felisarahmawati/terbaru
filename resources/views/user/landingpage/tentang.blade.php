@@ -4,7 +4,7 @@
 
 <!-- ======= About Section ======= -->
 @section('container')
-    <section id="about" class="about mt-7">
+    <section id="about" class="about" style="padding-top: 150px">
         <div class="container">
             <div class="row justify-content-between">
                 <div class="col-lg-5 d-flex align-items-center justify-content-center about-img" width="100%">

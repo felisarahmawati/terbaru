@@ -1,9 +1,7 @@
 @extends("layouts_super.main")
-
 @section('content')
 
 <section class="home-section">
-
     <div class="main">
         <div class="topbar">
             <div class="home-content">

@@ -16,4 +16,12 @@ class VerifikasiLayananVendorController extends Controller
         return view('admin.vendor.verifikasi_layanan' , $data);
     }
 
+    public function verifikasi_layanan()
+    {
+        $datalyn = [
+            "data_lyn" => User::where("id_role", 4)->get()
+        ];
+        return view("superadmin.verifikasi.verifikasi_layanan", $datalyn);
+    }
+
 }

@@ -3,60 +3,65 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\FaqController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\KontakController;
+
+
 use App\Http\Controllers\VendorController;
 use App\Http\Controllers\FinanceController;
-
-
-use App\Http\Controllers\Akun\LoginController;
-use App\Http\Controllers\Akun\PenggunaController;
 use App\Http\Controllers\Akun\RoleController;
 
 // use App\Http\Controllers\Vendor\VendorController;
 
-use App\Http\Controllers\Admin\DataCustomerController;
-use App\Http\Controllers\Admin\DataLayananVendorController;
-use App\Http\Controllers\Admin\DataOrderController;
-use App\Http\Controllers\Admin\DataPaymentController;
-use App\Http\Controllers\Admin\PemesananPickupController;
-use App\Http\Controllers\Admin\VerifikasiLayananVendorController;
-use App\Http\Controllers\Admin\VerifikasiVendorController;
-use App\Http\Controllers\Admin\PengembalianUangVendorController;
-use App\Http\Controllers\Admin\VerifikasiPenggunaController;
+use App\Http\Controllers\Akun\LoginController;
 use App\Http\Controllers\Master\AppController;
-use App\Http\Controllers\Master\KategoriController;
+use App\Http\Controllers\SliderHomeController;
+use App\Http\Controllers\TentangHomeController;
+use App\Http\Controllers\SliderKontakController;
+use App\Http\Controllers\Akun\PenggunaController;
+use App\Http\Controllers\SliderTentangController;
+use App\Http\Controllers\Layanan\DetailController;
+
+use App\Http\Controllers\Admin\DataOrderController;
+use App\Http\Controllers\Layanan\LayananController;
 use App\Http\Controllers\Master\HomeAwalController;
+use App\Http\Controllers\Master\KategoriController;
 use App\Http\Controllers\Master\ProvinsiController;
-use App\Http\Controllers\Master\TambahAlamatCustomerController;
-use App\Http\Controllers\Master\UpdatephotoAdminnController;
-use App\Http\Controllers\Master\UpdatephotoFinanceController;
-use App\Http\Controllers\Master\UpdatephotoVendorController;
+use App\Http\Controllers\KebijakanPrivasiController;
+use App\Http\Controllers\Master\DataAdminController;
+use App\Http\Controllers\Admin\DataPaymentController;
 
-use App\Http\Controllers\User\UserPemesananController;
-use App\Http\Controllers\User\ProfilCustomerController;
+use App\Http\Controllers\Akun\DatapenggunaController;
 
 
-use App\Http\Controllers\User\UserLandingpageController;
-use App\Http\Controllers\User\UpdatephotoCustomerController;
+use App\Http\Controllers\Master\DataVendorController;
+use App\Http\Controllers\Admin\DataCustomerController;
 
 use App\Http\Controllers\Layanan\SubLayananController;
-use App\Http\Controllers\Layanan\LayananSliderController;
-use App\Http\Controllers\Layanan\DetailController;
-use App\Http\Controllers\Layanan\LayananController;
-use App\Http\Controllers\UserKonfirmPembayaranController;
-use App\Http\Controllers\FaqController;
-use App\Http\Controllers\KebijakanPrivasiController;
-use App\Http\Controllers\Kelola\KelolaKendaraanController;
-use App\Http\Controllers\KontakController;
-use App\Http\Controllers\Master\DataDiriVendorController;
-use App\Http\Controllers\Master\DataVendorController;
-use App\Http\Controllers\SliderKontakController;
-use App\Http\Controllers\SliderTentangController;
-use App\Http\Controllers\Master\HomeAwalController as MasterHomeAwalController;
-use App\Http\Controllers\Master\UpdatephotoSuperadminController;
-use App\Http\Controllers\SliderHomeController;
+use App\Http\Controllers\Master\DataFinanceController;
+use App\Http\Controllers\User\UserPemesananController;
 use App\Http\Controllers\SubTentangtitipsiniController;
-use App\Http\Controllers\TentangHomeController;
+use App\Http\Controllers\User\ProfilCustomerController;
+use App\Http\Controllers\User\UserLandingpageController;
+use App\Http\Controllers\Admin\PemesananPickupController;
+use App\Http\Controllers\Layanan\LayananSliderController;
+use App\Http\Controllers\Master\DataDiriVendorController;
+use App\Http\Controllers\UserKonfirmPembayaranController;
+use App\Http\Controllers\Admin\VerifikasiVendorController;
+use App\Http\Controllers\Admin\DataLayananVendorController;
+use App\Http\Controllers\Admin\VerifikasiPenggunaController;
+use App\Http\Controllers\Master\DataCustomersuperController;
+use App\Http\Controllers\Master\UpdatephotoAdminnController;
+use App\Http\Controllers\Master\UpdatephotoVendorController;
+use App\Http\Controllers\User\UpdatephotoCustomerController;
+use App\Http\Controllers\Master\UpdatephotoFinanceController;
+use App\Http\Controllers\Admin\VerifikasiDataVendorController;
+use App\Http\Controllers\Master\TambahAlamatCustomerController;
+use App\Http\Controllers\Admin\PengembalianUangVendorController;
+use App\Http\Controllers\Master\UpdatephotoSuperadminController;
+use App\Http\Controllers\Admin\VerifikasiLayananVendorController;
+use App\Http\Controllers\Master\HomeAwalController as MasterHomeAwalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -80,9 +85,6 @@ Route::controller(AdminController::class)->group(function(){
         Route::resource("profile", ProfileAdminController::class);
         Route::patch('/profile/{id}', [ProfileAdminController::class, "update"]);
     });
-    Route::prefix("pengguna")->group(function(){
-        Route::resource("verifikasi_vendor", VerifikasiVendorController::class);
-    });
     Route::prefix("data")->group(function(){
         Route::resource("data_customer", DataCustomerController::class);
         Route::resource("data_payment", DataPaymentController::class);
@@ -95,8 +97,18 @@ Route::controller(AdminController::class)->group(function(){
             });
         });
     });
+
+    Route::controller(AdminController::class)->group(function(){
+        Route::get("/admin/pengguna/user/customer", "data_customer");
+        Route::get("/admin/pengguna/user/vendor", "data_vendor");
+        Route::get("/admin/transaksi/transaksi", "transaksi");
+        // Route::get("/admin/pengguna/verifikasi_vendor", "vendor");
+
+    });
+
     Route::prefix("vendor")->group(function(){
         Route::resource("verifikasi_layanan", VerifikasiLayananVendorController::class);
+        Route::resource("data_vendor", VerifikasiDataVendorController::class);
         Route::resource("pemesanan_pickup", PemesananPickupController::class);
         Route::controller(DataLayananVendorController::class)->group(function(){
             Route::prefix("data_vendor")->group(function(){
@@ -115,9 +127,16 @@ Route::controller(AdminController::class)->group(function(){
     });
 });
 
+Route::controller(VerifikasiVendorController::class)->group(function(){
+    Route::get('/admin/verifikasi/vendor', 'index');
+    Route::put('/admin/verifikasi/vendor/{id}/aktifkan', 'aktifkan');
+});
+
 Route::controller(VerifikasiPenggunaController::class)->group(function(){
     Route::get('/admin/verifikasi/pengguna', 'index');
+    Route::put('/admin/verifikasi/pengguna/{id}/aktifkan', 'aktifkan');
 });
+
 
 // Tampilan User
     Route::controller(UserLandingpageController::class)->group(function() {
@@ -148,7 +167,7 @@ Route::controller(VerifikasiPenggunaController::class)->group(function(){
             });
             Route::prefix("profil")->group(function() {
                 Route::resource("profil", ProfilCustomerController::class);
-                // Route::get("/profil/edit", ProfilCustomerController::class);
+                // Route::get("/profil/edit", ProfilCustomerController::class);f
                 // Route::get("/profil/simpan", ProfilCustomerController::class);
                 Route::get("alamat", [TambahAlamatCustomerController::class, "alamat"]);
                 Route::resource("/tambah_alamat", TambahAlamatCustomerController::class);
@@ -182,6 +201,10 @@ Route::controller(VerifikasiPenggunaController::class)->group(function(){
         Route::get('/user/kategori/bangunan', [UserLandingpageController::class, 'katbangunan']);
     });
 
+    Route::controller(VerifikasiLayananVendorController::class)->group(function(){
+        Route::get('/superadmin/verifikasi/verifikasi_layanan', 'verifikasi_layanan');
+    });
+
     Route::get("/user/profil/edit_alamat", function() {
         return view("user.profil.edit_alamat");
     });
@@ -209,11 +232,20 @@ Route::controller(FinanceController::class)->group(function(){
     Route::get('/finance/page', 'index');
     Route::get('/finance/transaksi/transaksiuser', 'transaksiuser');
     Route::get('/finance/transaksi/transaksivendor', 'transaksivendor');
+    Route::get('/finance/transaksi/detailtransaksiuser', 'detailtransaksiuser');
+    Route::get('/finance/transaksi/detailtransaksivendor', 'detailtransaksivendor');
     Route::get('/finance/DataPenarikan/penarikan', 'penarikan');
     Route::get('/finance/DataPenarikan/konfirmasi', 'konfirmasi');
     Route::get('/finance/DataPenarikan/history', 'history');
+    Route::get('/finance/DataPenarikan/vendor', 'vendor');
     Route::get('/finance/profilefinance', 'profile');
+    Route::get('/finance/laporan/laporan', 'laporan');
+    Route::get('/finance/laporan/laporansistem', 'laporansistem');
+    Route::get('/finance/laporan/laporanfinance', 'laporanfinance');
+
 });
+
+
 
 // Tampilan Admin
 Route::controller(AdminController::class)->group(function(){
@@ -232,18 +264,7 @@ Route::group(["middleware" => ["guest"]], function() {
 });
 
 Route::get("/ambil_kecamatan", [LoginController::class, "kecamatan"]);
-Route::get("/ambil_kelurahan", [LoginController::class, "kelurahan"]);
-
-    Route::get("/superadmin/vendor/data_vendor",[DataVendorController::class, 'index']);
-    Route::get("/superadmin/vendor/print_pdf",[DataVendorController::class, 'pdf'])->name('vendor.print_pdf');
-    Route::get("/superadmin/vendor/pdf_vendor/{id}",[DataVendorController::class, 'download'])->name('vendor.download');
-    Route::post("/superadmin/vendor/view-pdf",[DataVendorController::class, 'viewPDF'])->name('vendor.viewPDF');
-
-    // Route::get("/superadmin/vendor/pdf_vendor", function() {
-    //     return view("superadmin.vendor.pdf_vendor");
-    // });
-
-
+    Route::get("/ambil_kelurahan", [LoginController::class, "kelurahan"]);
 
 Route::group(["middleware" => ["autentikasi"]], function() {
     Route::controller(AppController::class)->group(function() {
@@ -252,34 +273,37 @@ Route::group(["middleware" => ["autentikasi"]], function() {
             Route::get("/profile", "profile");
             Route::get("/home", "home");
             Route::get("/setting", "setting");
-            Route::prefix("vendor")->group(function() {
-                // Route::get("/data_vendor", "vendor");
-                Route::get("/trans", "trans");
-                Route::get("/data_pick_up", "data_pick_up");
-            });
+
             Route::prefix("data")->group(function() {
-                Route::get("/order", "order");
-                Route::get("/order=bangunan", "bangunan");
-                Route::get("/order=barang", "barang");
-                Route::get("/order=pickup", "pickup");
-                Route::get("/payment", "payment");
-                Route::get("/pengaturan-user", "pengaturan_user");
+                Route::get("/data_payment", "data_payment");
+                Route::prefix("data_order")->group(function() {
+                    Route::get("/kendaraan", "order_kendaraan");
+                    Route::get("/barang", "order_barang");
+                    Route::get("/bangunan", "order_bangunan");
+                    Route::get("/pickup", "order_pickup");
+                });
+            });
+            Route::prefix("penarikan")->group(function() {
+                Route::get("/penarikan", "penarikan");
+                Route::get("/history", "history");
+                Route::get("/vendor", "penarikan_vendor");
             });
 
             Route::prefix("akun")->group(function() {
+                // Route::get("/role/index", [PenggunaController::class, "indexrole"]);
                 Route::get("/role/edit", [RoleController::class, "edit"]);
                 Route::get("/role/simpan", [RoleController::class, "update"]);
                 Route::resource("role", RoleController::class);
                 Route::get('/pengguna/edit', [PenggunaController::class, "edit"]);
                 Route::get('/pengguna/simpan', [PenggunaController::class, "update"]);
                 Route::resource("pengguna", PenggunaController::class);
+
             });
+            // Route::get("/superadmin/akun/pengguna/users/pdf_vendor", function() {
+            //     return view("superadmin.akun.pengguna.users.pdf_vendor");
+            // });
 
             Route::prefix("master")->group(function() {
-                Route::get("/kategori/edit", [KategoriController::class, "edit"]);
-                Route::put("/kategori/simpan", [KategoriController::class, "update"]);
-                Route::resource("kategori", KategoriController::class);
-
                 Route::get("/provinsi/edit", [ProvinsiController::class, "edit"]);
                 Route::get("/provinsi/simpan", [ProvinsiController::class, "update"]);
                 Route::resource("provinsi", ProvinsiController::class);
@@ -314,12 +338,17 @@ Route::group(["middleware" => ["autentikasi"]], function() {
             });
 
             Route::prefix("slider")->group(function() {
-                Route::get("/layanan_slider/edit", [LayananSliderController::class, "edit"]);
-                Route::put("/layanan_slider/simpan", [LayananSliderController::class, "update"]);
-                Route::resource("layanan_slider", LayananSliderController::class);
+                // Route::get("/layanan_slider/edit", [LayananSliderController::class, "edit"]);
+                // Route::put("/layanan_slider/simpan", [LayananSliderController::class, "update"]);
+                // Route::resource("layanan_slider", LayananSliderController::class);
+
             });
 
             Route::prefix("layanan")->group(function() {
+                Route::get("/kategori/edit", [KategoriController::class, "edit"]);
+                Route::put("/kategori/simpan", [KategoriController::class, "update"]);
+                Route::resource("kategori", KategoriController::class);
+
                 Route::get("/sublayanan/edit", [SubLayananController::class, "edit"]);
                 Route::get("/sublayanan/simpan", [SubLayananController::class, "update"]);
                 Route::resource("sublayanan", SubLayananController::class);
@@ -332,6 +361,9 @@ Route::group(["middleware" => ["autentikasi"]], function() {
                 Route::get("/layanan/simpan", [LayananController::class, "update"]);
                 Route::resource("layanan", LayananController::class);
 
+                Route::get("/layanan_slider/edit", [LayananSliderController::class, "edit"]);
+                Route::put("/layanan_slider/simpan", [LayananSliderController::class, "update"]);
+                Route::resource("layanan_slider", LayananSliderController::class);
             });
         });
     });
@@ -372,8 +404,31 @@ Route::controller(UpdatephotoCustomerController::class)->group(function(){
     Route::get('/user/profil/profil','indexp')->name('user.profil.profil');
     Route::patch('/profil/profil/{id}','update')->name('profil.update');
 });
+//route pengguna
+route::controller(DatapenggunaController::class)->group(function(){
+    // Route::get('/superadmin/akun/pengguna/users/admin', 'admin');
+    // Route::get('/superadmin/akun/pengguna/users/vendor', 'vendor');
+    Route::get('/superadmin/akun/pengguna/users/finance', 'finance');
+    // Route::get('/superadmin/akun/pengguna/users/customer', 'customer');
+    Route::get('/superadmin/verifikasi/data_vendor', 'verifikasi_vendor');
+    Route::get('/superadmin/akun/pengguna/users/print_pdf', 'pdf');
 
-//Kebijakan Privasi
+});
+
+//Data Pengguna Dashboard Superadmin
+Route::get("/superadmin/akun/pengguna/users/customer",[DataCustomersuperController::class, 'index']);
+Route::get("/superadmin/akun/pengguna/users/print_pdf_customer",[DataCustomersuperController::class, 'pdf']);
+
+Route::get("/superadmin/akun/pengguna/users/finance",[DataFinanceController::class, 'index']);
+Route::get("/superadmin/akun/pengguna/users/print_pdf_finance",[DataFinanceController::class, 'pdf']);
+
+Route::get("/superadmin/akun/pengguna/users/admin",[DataAdminController::class, 'index']);
+Route::get("/superadmin/akun/pengguna/users/print_pdf_admin",[DataAdminController::class, 'pdf']);
+
+Route::get("/superadmin/akun/pengguna/users/vendor",[DataVendorController::class, 'index']);
+Route::get("/superadmin/akun/pengguna/users/print_pdf",[DataVendorController::class, 'pdf']);
+Route::get("/superadmin/akun/pengguna/users/pdf_vendor/{id}",[DataVendorController::class, 'download']);
+
 route::controller(KebijakanPrivasiController::class)->group(function(){
     Route::get('/superadmin/master/kebijakanprivasi/index', 'index')->name('index');
     Route::get('/superadmin/master/kebijakanprivasi/detail', 'show');
@@ -446,6 +501,7 @@ Route::controller(VendorController::class)->group(function(){
     Route::get('/vendor/vendor/Kelola-Kendaraan/layanan_step3', 'lyn3') ;
     Route::get('/vendor/vendor/Kelola-Kendaraan/layanan_step4', 'lyn4') ;
     Route::get('/vendor/vendor/Kelola-Kendaraan/kelola_kendaraan', 'kelolakendaraan') ;
+    Route::get('/vendor/vendor/Kelola-Kendaraan/atur_alamat', 'aturalamatken') ;
 
     //Bangunan
     Route::get('/vendor/vendor/Kelola-Bangunan/layanan_step1', 'lynbangunan1');
@@ -489,13 +545,10 @@ Route::controller(VendorController::class)->group(function(){
     Route::get('/vendor/vendor/profilevendor/Jawaban6', 'jawaban6');
 });
 
+Route::get('/vendor/vendor/setting', [VendorController::class, 'setting']);
+
 //Lengkapi Data
 Route::controller(DataDiriVendorController::class)->group(function(){
     Route::get('/vendor/login/datadiri', 'indexp');
     Route::patch('/vendor/login/datadiri/{id}','update')->name('datadiri.update');
-});
-
-Route::controller(KelolaKendaraanController::class)->group(function(){
-    Route::get('/vendor/vendor/Kelola-Kendaraan/atur_alamat', 'index');
-    Route::patch('/vendor/vendor/Kelola-Kendaraan/atur_alamat/{id}', 'update')->name('Kelola-Kendaraan.atur_alamat.update');
 });

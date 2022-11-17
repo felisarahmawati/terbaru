@@ -3,13 +3,13 @@
         <div class="profile-content">
             <img class="p-1 mt-1 ms-3" style="width: 45px; height: 45px;" src="{{ asset('Frame 172.png') }}" alt="Profile">
         </div>
-        <a href="/vendor/dashboard_vendor" style="text-decoration: none;">
+        <a href="/" style="text-decoration: none;">
             <span class="logo_name">Titipsini.com</span>
         </a>
     </div>
 
     <ul class="nav-links">
-        <li class="list {{ Request::segment(2) == 'dashboard_vendor' ? 'active' : '' }}">
+        <li class="list {{ Request::segment(2) == 'dashboard' ? 'active' : '' }}">
             <a href="/vendor/dashboard_vendor">
                 <i class='bx bx-grid-alt'></i>
                 <span class="link_name">Dashboard</span>
@@ -29,7 +29,7 @@
             </ul>
         </li>
 
-        <li class="list {{ Request::segment(2) == 'profilevendor' ? 'active' : '' }}">
+        <li class="list {{ Request::segment(2) == 'profile' ? 'active' : '' }}">
             <a href="/vendor/profilevendor/profile_vendor">
                 <i class='bx bx-user'></i>
                 <span class="link_name">Profile</span>
@@ -56,7 +56,7 @@
             </div>
         </li>
 
-        <li class="list {{ Request::segment(2) == 'vendor' ? 'active' : '' }}">
+        <li class="list {{ Request::segment(2) == 'Vendor' ? 'active' : '' }}">
             <div class="iocn-link">
                 <a>
                     <i class='bx bxs-shopping-bags'></i>
@@ -74,7 +74,7 @@
             </div>
         </li>
 
-        <li class="list {{ Request::segment(2) == 'keuangan' ? 'active' : '' }}">
+        <li class="list {{ Request::segment(2) == 'Vendor' ? 'active' : '' }}">
             <div class="iocn-link">
                 <a>
                     <i class="bi bi-cash-coin"></i>
@@ -92,7 +92,7 @@
         </li>
 
         <li class="list {{ Request::segment(2) == 'setting' ? 'active' : '' }}">
-            <a href="/admin/setting">
+            <a href="/vendor/vendor/setting">
                 <i class='bx bx-cog'></i>
                 <span class="link_name">Setting</span>
             </a>
@@ -114,7 +114,7 @@
                     <a style="font-size: 20px" href="{{('/logout')}}" data-toggle="modal" data-target="#logoutModal">
                         Logout
                     </a>
-            </div>
+                </div>
             </div>
         </li>
 

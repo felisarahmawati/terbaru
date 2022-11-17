@@ -15,4 +15,14 @@ class VerifikasiPenggunaController extends Controller
         ];
         return view('admin.verifikasi.pengguna', $data);
     }
+
+    public function aktifkan($id)
+    {
+        User::where("id", $id)->update([
+            "status" => 1
+        ]);
+
+        return redirect("/admin/verifikasi/pengguna");
+    }
+
 }

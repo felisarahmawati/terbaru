@@ -21,9 +21,9 @@
                     </div>
                     <br>
                     @if (session('berhasil'))
-                    <div class="alert alert-success">
-                        {{ session('berhasil')}}
-                    </div>
+                        <div class="alert alert-success">
+                            {{ session('berhasil')}}
+                        </div>
                     @endif
                     <table>
                         <thead>
@@ -113,7 +113,6 @@
                         <label for="image"> Gambar </label>
                         <input type="file" class="form-control  " name="image" id="image">
                     </div>
-
                 </div>
                 <div class="modal-footer d-md-block">
                     <button type="submit" class="btn btn-primary btn-sm">Simpan</button>

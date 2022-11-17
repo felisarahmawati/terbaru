@@ -59,7 +59,7 @@
                                     </p>
                                     <h6><svg  xmlns="http://www.w3.org/2000/svg" width="37px" height="37px" fill="currentColor"class="bi bi-1-circle-fill p-2" viewBox="0 0 16 16" style="color:rgb(255, 221, 0)">
                                         <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0ZM9.283 4.002V12H7.971V5.338h-.065L6.072 6.656V5.385l1.899-1.383h1.312Z"/>
-                                      </svg><b>Alamat lahan parekir</b></h6>
+                                      </svg><b>Alamat lahan parkir</b></h6>
                                     <div class="row">
                                         <div class="col-md-10">
                                             <p class="ps-4">Untuk mengatur lokasi dan detail alamat parkir Anda</p>
@@ -105,7 +105,7 @@
                 <div class="modal-content">
 
                         <div class="text-center mt-4 mb-4">
-                          <img src="../../assets/img/centanghijau.png" alt="centangHijau" style="width: 100px; height:100px">
+                          <img src="{{ asset('assets/img/centanghijauuu.png') }}" alt="centangHijau" style="width: 100px; height:100px">
                           <p class="congratulations" style="padding-top: 20px"><b>Selamat!!!<b></p>
                           <h5 class="berhasil" style="padding-top: 5px; color: grey">Selamat anda telah berhasil
                             membuat layanan.!</h5>

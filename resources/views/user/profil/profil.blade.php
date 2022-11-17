@@ -1,11 +1,11 @@
 @extends("layouts_user.main")
 @section('container')
 
-<section id="services" class="services section-bg" style="padding-top: 100px;">
+<section id="services" class="services section-bg" style="padding-top: 100px; padding-left:185px">
     <div class="container mt-4 mb-4">
         <div class="row row-cols-1 row-cols-md-2 g-4">
             @include("user.partials.p_customer")
-            <div class="col" style="width: 700px">
+            <div class="col" style="width: 730px">
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title fw-bold">Profile Saya</h5>
@@ -16,7 +16,7 @@
                             @endif
 
                             <hr width="100%" color="#c0c0c0">
-                            <form action="" method="POST" class="row g-3 fw-bold">
+                            <form action="" method="POST" class="row g-3 fw-bold px-2 py-2">
                                 @method("PATCH")
                                 @csrf
                                 <div class="col-md-15">
@@ -64,9 +64,9 @@
 
     <!-- Modal Edit Photo-->
     <div class="modal fade" id="exampleModalEdit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" style="width:40%">
-            <div class="modal-content">
-                <div class="modal-header hader">
+        <div class="modal-dialog modal-lg" style="width:50%">
+            <div class="modal-content px-3 py-3">
+                <div class="modal-header">
                     <h3 class="modal-title" id="exampleModalLabel"></h3>Profile Saya</h3>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -163,8 +163,8 @@
                     <br>
 
                     <div class="row mb-0">
-                        <div class="col-md-8 offset-md-4">
-                            <button type="submit" class="btn btn-primary">
+                        <div class="col-sm-12 mb-4 text-center">
+                            <button type="submit" class="btn btn-success col-sm-10">
                                 {{ __('Update') }}
                             </button>
                         </div>

@@ -66,9 +66,9 @@
         </div>
     </header>
     <div class="page-container">
-        <div class="row">
-            <div class="col-md-12 pt-5">
-                <div class="card"><br>
+        <div class="content h-100">
+            <div class="col-md-8 pt-4 mt-4 mb-4 mx-auto">
+                <div class="card-block"><br>
                     <div class="card-header">
                         <h5 class="text-center">
                             Register
@@ -84,15 +84,6 @@
                                 </label>
                                 <div class="col-md-7">
                                     <input type="text" class="form-control" id="name" name="name" placeholder="Masukkan name" required>
-                                </div>
-                            </div>
-
-                            <div class="mb-3 row">
-                                <label for="tgl_lahir" class="form-label col-sm-3 mt-1" style="text-align: right">
-                                    Tanggal Lahir :
-                                </label>
-                                <div class="col-md-7">
-                                    <input type="date" class="form-control" id="tgl_lahir" name="tgl_lahir" placeholder="Masukkan tgl_lahir" required>
                                 </div>
                             </div>
 
@@ -173,7 +164,7 @@
                             {{-- <button type="reset" class="btn btn-danger" style="align-items: center">
                                 Batal
                             </button> --}}
-                            <div class="center">
+                            <div class="d-grid gap-2 col-2 mx-auto">
                             <button type="submit" class="btn btn-primary">
                                 Register
                             </button>

@@ -195,6 +195,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
+
     ],
 
     /*
@@ -207,6 +208,7 @@ return [
     | the aliases are "lazy" loaded so they don't hinder performance.
     |
     */
+
     'PDF' => Barryvdh\DomPDF\Facade::class,
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,

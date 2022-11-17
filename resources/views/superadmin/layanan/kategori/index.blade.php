@@ -84,7 +84,7 @@
             </h3>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <form action="{{ url('/superadmin/master/kategori')}}" method="POST" enctype="multipart/form-data">
+        <form action="{{ url('/superadmin/layanan/kategori')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="modal-body">
                 <div class="form-group">
@@ -119,7 +119,7 @@
                 </h3>
                 <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="{{ url('/superadmin/master/kategori/simpan') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ url('/superadmin/layanan/kategori/simpan') }}" method="POST" enctype="multipart/form-data">
                 @method("PUT")
                 {{ csrf_field() }}
                 <div class="modal-body" id="modal-content-edit">
@@ -156,7 +156,7 @@
 
     function editKategori(id) {
         $.ajax({
-            url: "{{ url('/superadmin/master/kategori/edit') }}",
+            url: "{{ url('/superadmin/layanan/kategori/edit') }}",
             type: "GET",
             data: {
                 id: id

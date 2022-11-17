@@ -34,7 +34,7 @@
                             @foreach ( $user as $lynvendor )
                                 <tr>
                                     <td>{{ $lynvendor->nama_vendor }}</td>
-                                    <td>Kendaraan</td>
+                                    <td>{{ $lynvendor->layanan }}</td>
                                     <td>{{ $lynvendor->alamat }}</td>
                                     <td class="td" style="text-align: center">
                                         <button onclick="detail" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Bangunan{{ $lynvendor->id }}">
